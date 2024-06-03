@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    @State private var name: String = ""
+    @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
     
     var body: some View {
         VStack {
             Text("Hi there!")
             Text("What's your name?")
-            TextField("Please enter your name", text: $name)
+            TextField("Please enter your name", text: $welcomeViewVM.userName)
                 .multilineTextAlignment(.center)
                 .padding(.all, 48)
-            Button(action: {}) {
+            
+            Button(action: welcomeViewVM.login) {
                 Text("Next")
                     .fontWeight(.bold)
                     .foregroundStyle(.white)
@@ -37,4 +38,5 @@ struct WelcomeView: View {
 
 #Preview {
     WelcomeView()
+        .environmentObject(WelcomeViewViewModel())
 }

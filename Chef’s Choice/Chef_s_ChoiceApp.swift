@@ -12,6 +12,7 @@ struct Chef_s_ChoiceApp: App {
     var body: some Scene {
         WindowGroup {
             WelcomeView()
+                .environmentObject(WelcomeViewViewModel())
         }
     }
 }

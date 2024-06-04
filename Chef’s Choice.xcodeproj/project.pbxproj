@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B6BCF2C0F206A002887BE /* ButtonView.swift */; };
 		20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */; };
 		20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */; };
 		20AACCFF2C0DF36000D97AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20AACCFE2C0DF36000D97AB4 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		207B6BCF2C0F206A002887BE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		20AACCF72C0DF35E00D97AB4 /* Chef’s Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chef’s Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef_s_ChoiceApp.swift; sourceTree = "<group>"; };
 		20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -42,6 +44,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		207B6BCE2C0EFD25002887BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20AACD082C0DFB8E00D97AB4 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		207B6BD12C0F2FC9002887BE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				20AACD0A2C0E191500D97AB4 /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		20AACCEE2C0DF35E00D97AB4 = {
 			isa = PBXGroup;
 			children = (
@@ -64,9 +82,10 @@
 				20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */,
 				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
 				20CADA0A2C0E1FAF007FBAAF /* MainView.swift */,
+				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
 				20CADA072C0E1E41007FBAAF /* WelcomeView */,
-				20AACD0A2C0E191500D97AB4 /* StorageManager.swift */,
-				20AACD082C0DFB8E00D97AB4 /* User.swift */,
+				207B6BD12C0F2FC9002887BE /* Services */,
+				207B6BCE2C0EFD25002887BE /* Model */,
 				20AACCFE2C0DF36000D97AB4 /* Assets.xcassets */,
 				20AACD002C0DF36000D97AB4 /* Preview Content */,
 			);
@@ -162,6 +181,7 @@
 			files = (
 				20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */,
 				20CADA0B2C0E1FAF007FBAAF /* MainView.swift in Sources */,
+				207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */,
 				20AACD0D2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift in Sources */,
 				20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */,
 				20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */,
@@ -307,7 +327,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -340,7 +360,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

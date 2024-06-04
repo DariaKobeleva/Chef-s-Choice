@@ -8,26 +8,22 @@
 import SwiftUI
 
 final class WelcomeViewViewModel: ObservableObject {
-    private var storageManager = StorageManager.shared
-    
     @Published var user = User()
-    var userName: String
-    var isLoggedIn: Bool
     
-    init() {
-        let user = storageManager.loadUser()
-        userName = user.name
-        isLoggedIn = user.isLoggedIn
+    private let storageManager = StorageManager.shared
+    
+    init(user: User = User()) {
+        self.user = user
     }
     
     func login() {
-        isLoggedIn.toggle()
-        storageManager.saveUser(user: User(name: userName, isLoggedIn: true))
+        user.isLoggedIn.toggle()
+        storageManager.save(user: user)
     }
     
     func logout() {
-        userName = ""
-        isLoggedIn.toggle()
-        storageManager.deleteUser()
+        user.name = ""
+        user.isLoggedIn.toggle()
+        storageManager.clear()
     }
 }

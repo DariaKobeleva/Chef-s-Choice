@@ -10,10 +10,12 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
     var body: some View {
-        Text("Hello, \(welcomeViewVM.userName)")
+        Text("Hello, \(welcomeViewVM.user.name)")
+        ButtonView(action: welcomeViewVM.logout, text: "Log out", colorButton: .blue)
     }
 }
 
 #Preview {
     MainView()
+        .environmentObject(WelcomeViewViewModel())
 }

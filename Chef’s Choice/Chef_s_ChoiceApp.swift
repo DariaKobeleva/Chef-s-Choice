@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct Chef_s_ChoiceApp: App {
+    @StateObject private var welcomeViewVM = WelcomeViewViewModel(
+        user: StorageManager.shared.fetchUser()
+    )
     var body: some Scene {
         WindowGroup {
-            WelcomeView()
-                .environmentObject(WelcomeViewViewModel())
+            RootView()
         }
+        .environmentObject(welcomeViewVM)
     }
 }

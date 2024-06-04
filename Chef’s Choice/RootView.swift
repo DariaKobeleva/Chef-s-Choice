@@ -11,10 +11,12 @@ struct RootView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
     
     var body: some View {
-        if welcomeViewVM.isLoggedIn {
-            MainView()
-        } else {
-            WelcomeView()
+        Group {
+            if welcomeViewVM.user.isLoggedIn {
+                MainView()
+            } else {
+                WelcomeView()
+            }
         }
     }
 }

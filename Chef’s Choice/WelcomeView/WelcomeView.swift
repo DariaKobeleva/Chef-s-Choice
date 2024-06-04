@@ -14,25 +14,12 @@ struct WelcomeView: View {
         VStack {
             Text("Hi there!")
             Text("What's your name?")
-            TextField("Please enter your name", text: $welcomeViewVM.userName)
+            TextField("Please enter your name", text: $welcomeViewVM.user.name)
                 .multilineTextAlignment(.center)
                 .padding(.all, 48)
             
-            Button(action: welcomeViewVM.login) {
-                Text("Next")
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-            }
-            .frame(width: 100, height: 40)
-            .background(.blue.opacity(0.7))
-            .clipShape(.rect(cornerRadius: 20))
-            .overlay(
-                RoundedRectangle(cornerRadius: 20)
-                    .stroke(.gray, lineWidth: 1)
-            )
+            ButtonView(action: welcomeViewVM.login, text: "Continue", colorButton: .blue)
         }
-
-        
     }
 }
 

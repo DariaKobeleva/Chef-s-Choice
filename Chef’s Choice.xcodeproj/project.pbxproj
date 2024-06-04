@@ -60,6 +60,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		207B6BD22C0F7AE8002887BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
+				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		20AACCEE2C0DF35E00D97AB4 = {
 			isa = PBXGroup;
 			children = (
@@ -80,9 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */,
-				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
 				20CADA0A2C0E1FAF007FBAAF /* MainView.swift */,
-				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
+				207B6BD22C0F7AE8002887BE /* Views */,
 				20CADA072C0E1E41007FBAAF /* WelcomeView */,
 				207B6BD12C0F2FC9002887BE /* Services */,
 				207B6BCE2C0EFD25002887BE /* Model */,

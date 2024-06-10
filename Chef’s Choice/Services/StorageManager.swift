@@ -26,4 +26,5 @@ final class StorageManager {
     func clear() {
         userData = nil
     }
+    
 }

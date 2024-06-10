@@ -1,0 +1,52 @@
+//
+//  MainView.swift
+//  Chef’s Choice
+//
+//  Created by Дарья Кобелева on 03.06.2024.
+//
+
+import SwiftUI
+
+struct MainView: View {
+    @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
+    @StateObject private var networkManager = NetworkManager()
+    
+    private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
+    
+    var body: some View {
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                    ForEach(networkManager.meals, id: \.self) { meal in
+                        VStack {
+                            AsyncImage(url: URL(string: meal.strMealThumb)) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 170, height: 170)
+                                    .clipped()
+                            } placeholder: {
+                                Rectangle()
+                                    .frame(width: 170, height: 170)
+                                    .foregroundColor(.gray)
+                            }
+                            Text(meal.strMeal)
+                                .font(.headline)
+                                .frame(width: 170)
+                                .multilineTextAlignment(.center)
+                        }
+                    }
+                }
+            }
+            .navigationTitle("Recipes")
+            .task {
+                await networkManager.fetchMeals()
+            }
+        }
+    }
+}
+
+#Preview {
+    MainView()
+        .environmentObject(WelcomeViewViewModel())
+}

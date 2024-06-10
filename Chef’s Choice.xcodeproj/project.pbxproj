@@ -11,6 +11,7 @@
 		2066AFDA2C14BFAC00407836 /* Meals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2066AFD92C14BFAC00407836 /* Meals.swift */; };
 		2066AFDC2C14C00F00407836 /* MainViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2066AFDB2C14C00F00407836 /* MainViewViewModel.swift */; };
 		207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B6BCF2C0F206A002887BE /* ButtonView.swift */; };
+		20868D112C17539500EEAF84 /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20868D102C17539500EEAF84 /* Categories.swift */; };
 		20A63F622C14C5490083F363 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63F612C14C5490083F363 /* NetworkManager.swift */; };
 		20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */; };
 		20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */; };
@@ -27,6 +28,7 @@
 		2066AFD92C14BFAC00407836 /* Meals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meals.swift; sourceTree = "<group>"; };
 		2066AFDB2C14C00F00407836 /* MainViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewViewModel.swift; sourceTree = "<group>"; };
 		207B6BCF2C0F206A002887BE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		20868D102C17539500EEAF84 /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		20A63F612C14C5490083F363 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		20AACCF72C0DF35E00D97AB4 /* Chef’s Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chef’s Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef_s_ChoiceApp.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			children = (
 				20AACD082C0DFB8E00D97AB4 /* User.swift */,
 				2066AFD92C14BFAC00407836 /* Meals.swift */,
+				20868D102C17539500EEAF84 /* Categories.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				20CADA0B2C0E1FAF007FBAAF /* MainView.swift in Sources */,
 				207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */,
 				20A63F622C14C5490083F363 /* NetworkManager.swift in Sources */,
+				20868D112C17539500EEAF84 /* Categories.swift in Sources */,
 				20AACD0D2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift in Sources */,
 				20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */,
 				20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */,

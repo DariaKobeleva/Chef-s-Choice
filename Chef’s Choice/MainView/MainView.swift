@@ -17,9 +17,9 @@ struct MainView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                    ForEach(networkManager.meals, id: \.self) { meal in
+                    ForEach(networkManager.categories, id: \.self) { category in
                         VStack {
-                            AsyncImage(url: URL(string: meal.strMealThumb)) { image in
+                            AsyncImage(url: URL(string: category.strCategoryThumb)) { image in
                                 image
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
@@ -30,7 +30,7 @@ struct MainView: View {
                                     .frame(width: 170, height: 170)
                                     .foregroundColor(.gray)
                             }
-                            Text(meal.strMeal)
+                            Text(category.strCategory)
                                 .font(.headline)
                                 .frame(width: 170)
                                 .multilineTextAlignment(.center)
@@ -38,9 +38,9 @@ struct MainView: View {
                     }
                 }
             }
-            .navigationTitle("Recipes")
+            .navigationTitle("Categories")
             .task {
-                await networkManager.fetchMeals()
+                await networkManager.fetchCategories()
             }
         }
     }

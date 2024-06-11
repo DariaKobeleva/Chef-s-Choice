@@ -1,5 +1,5 @@
 //
-//  Meals.swift
+//  Meal.swift
 //  Chef’s Choice
 //
 //  Created by Дарья Кобелева on 08.06.2024.

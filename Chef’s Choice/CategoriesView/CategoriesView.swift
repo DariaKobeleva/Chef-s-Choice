@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  CategoriesView.swift
 //  Chef’s Choice
 //
 //  Created by Дарья Кобелева on 03.06.2024.
@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct MainView: View {
-    @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
+struct CategoriesView: View {
     @StateObject private var networkManager = NetworkManager()
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(networkManager.categories, id: \.self) { category in
@@ -25,15 +24,11 @@ struct MainView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .clipped()
                             } placeholder: {
-                                Text(category.strCategory)
-                                    .font(.headline)
-                                    .frame(width: 170)
-                                    .multilineTextAlignment(.center)
+                                Image("defaultImage")
                             }
                             Text(category.strCategory)
-                                .font(.headline)
-                                .frame(width: 170)
                                 .multilineTextAlignment(.center)
+                                .font(.title2)
                         }
                     }
                 }
@@ -47,6 +42,6 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    CategoriesView()
         .environmentObject(WelcomeViewViewModel())
 }

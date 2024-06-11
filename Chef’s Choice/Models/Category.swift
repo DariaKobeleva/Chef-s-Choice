@@ -1,5 +1,5 @@
 //
-//  Categories.swift
+//  Category.swift
 //  Chef’s Choice
 //
 //  Created by Дарья Кобелева on 10.06.2024.

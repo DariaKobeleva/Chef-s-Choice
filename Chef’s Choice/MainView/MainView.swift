@@ -16,19 +16,19 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(networkManager.categories, id: \.self) { category in
                         VStack {
                             AsyncImage(url: URL(string: category.strCategoryThumb)) { image in
                                 image
                                     .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 170, height: 170)
+                                    .aspectRatio(contentMode: .fit)
                                     .clipped()
                             } placeholder: {
-                                Rectangle()
-                                    .frame(width: 170, height: 170)
-                                    .foregroundColor(.gray)
+                                Text(category.strCategory)
+                                    .font(.headline)
+                                    .frame(width: 170)
+                                    .multilineTextAlignment(.center)
                             }
                             Text(category.strCategory)
                                 .font(.headline)

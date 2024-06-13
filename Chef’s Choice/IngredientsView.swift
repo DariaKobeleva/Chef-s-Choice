@@ -22,7 +22,9 @@ struct IngredientsView: View {
                                 .frame(width: 70, height: 70)
                         } placeholder: {
                            Image("defaultImage")
-                                
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
                         }
                     }
                     Text(ingredient.strIngredient)

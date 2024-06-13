@@ -12,6 +12,7 @@ struct WelcomeView: View {
     
     var body: some View {
         VStack {
+            Image("defaultImage")
             Text("Hi there!")
             Text("What's your name?")
             TextField("Please enter your name", text: $welcomeViewVM.user.name)

@@ -13,74 +13,50 @@ class NetworkManager: ObservableObject {
     @Published var cuisines: [Cuisine] = []
     @Published var ingredients: [Ingredient] = []
     
-    //TODO: Make 1 function for catch
-    
-    func fetchMeals() async {
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=chicken") else {
+    func fetchData<T: Decodable>(
+        urlString: String,
+        responseType: T.Type,
+        update: @escaping (T) -> Void
+    ) async {
+        guard let url = URL(string: urlString) else {
             return
         }
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            if let mealResponse = try? JSONDecoder().decode(MealResponse.self, from: data) {
-                DispatchQueue.main.async { [unowned self] in
-                    meals = mealResponse.meals
-                }
+            let decodedResponse = try JSONDecoder().decode(responseType, from: data)
+            DispatchQueue.main.async {
+                update(decodedResponse)
             }
         } catch {
-            print("Failed to fetch meals: \(error)")
+            print("Failed to fetch data: \(error)")
         }
     }
     
     func fetchCategories() async {
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/categories.php") else {
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let categoriesResponse = try? JSONDecoder().decode(CategoryResponse.self, from: data) {
-                DispatchQueue.main.async { [unowned self] in
-                    categories = categoriesResponse.categories
-                }
-            }
-        } catch {
-            print("Failed to fetch categories: \(error)")
+        await fetchData(
+            urlString: "https://www.themealdb.com/api/json/v1/1/categories.php",
+            responseType: CategoryResponse.self
+        ) { [unowned self] response in
+            categories = response.categories
         }
     }
     
     func fetchCuisines() async {
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?a=list") else {
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let cuisineResponse = try? JSONDecoder().decode(CuisineResponse.self, from: data) {
-                DispatchQueue.main.async { [unowned self] in
-                    cuisines = cuisineResponse.meals
-                }
-            }
-        } catch {
-            print("Failed to fetch cuisines: \(error)")
+        await fetchData(
+            urlString: "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
+            responseType: CuisineResponse.self
+        ) { [unowned self] response in
+            cuisines = response.meals
         }
     }
     
     func fetchIngredient() async {
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?i=list") else {
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let ingredientResponse = try? JSONDecoder().decode(IngredientResponse.self, from: data) {
-                DispatchQueue.main.async { [unowned self] in
-                    ingredients = ingredientResponse.meals
-                }
-            }
-        } catch {
-            print("Failed to fetch cuisines: \(error)")
+        await fetchData(
+            urlString: "https://www.themealdb.com/api/json/v1/1/list.php?i=list",
+            responseType: IngredientResponse.self
+        ) { [unowned self] response in
+            ingredients = response.meals
         }
     }
 }
-

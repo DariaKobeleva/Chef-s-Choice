@@ -9,12 +9,15 @@ import SwiftUI
 
 struct CuisinesView: View {
     @StateObject private var networkManager = NetworkManager()
-  
+    
     var body: some View {
         NavigationView {
             List(networkManager.cuisines) { cuisine in
-                Text(cuisine.strArea)
-                    .font(.title2)
+                NavigationLink(destination: CuisinesRecipesView(cuisine: cuisine.strArea)) {
+                    
+                    Text(cuisine.strArea)
+                        .font(.title2)
+                }
             }
             .listStyle(.plain)
             .navigationTitle("Cuisines")

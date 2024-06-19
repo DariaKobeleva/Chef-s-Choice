@@ -13,22 +13,24 @@ struct IngredientsView: View {
     var body: some View {
         NavigationView {
             List(networkManager.ingredients) { ingredient in
-                HStack {
-                    if let imageURL = ingredient.imageURL {
-                        AsyncImage(url: imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 70, height: 70)
-                        } placeholder: {
-                           Image("defaultImage")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 70, height: 70)
+                NavigationLink(destination: IngredientRecipesView(ingredient: ingredient.strIngredient)) {
+                    HStack {
+                        if let imageURL = ingredient.imageURL {
+                            AsyncImage(url: imageURL) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 70, height: 70)
+                            } placeholder: {
+                                Image("defaultImage")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 70, height: 70)
+                            }
                         }
+                        Text(ingredient.strIngredient)
+                            .font(.title2)
                     }
-                    Text(ingredient.strIngredient)
-                        .font(.title2)
                 }
             }
             .listStyle(.plain)

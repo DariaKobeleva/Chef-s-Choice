@@ -1,47 +1,50 @@
 //
-//  CategoriesView.swift
+//  IngredientRecipesView.swift
 //  Chef’s Choice
 //
-//  Created by Дарья Кобелева on 03.06.2024.
+//  Created by Дарья Кобелева on 19.06.2024.
 //
 
 import SwiftUI
 
-struct CategoriesView: View {
+struct IngredientRecipesView: View {
+    let ingredient: String
+    
     @StateObject private var networkManager = NetworkManager()
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
-    
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: adaptiveColumns, spacing: 10) {
-                    ForEach(networkManager.categories, id: \.self) { category in
+                LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                    ForEach(networkManager.recipes) { recipe in
                         VStack {
-                            AsyncImage(url: URL(string: category.strCategoryThumb)) { image in
+                            AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
                                 image
                                     .resizable()
-                                    .aspectRatio(contentMode: .fit)
                                     .clipped()
+                                    .cornerRadius(30)
+                                    .aspectRatio(contentMode: .fit)
                             } placeholder: {
                                 Image("defaultImage")
                             }
-                            Text(category.strCategory)
+                            Text(recipe.strMeal)
                                 .multilineTextAlignment(.center)
                                 .font(.title2)
                         }
+                        
                     }
                 }
             }
-            .navigationTitle("Categories")
+            .navigationTitle("Cuisines")
             .task {
-                await networkManager.fetchCategories()
+                await networkManager.fetchRecipesByIngredient(ingredient)
             }
         }
     }
 }
 
+
 #Preview {
-    CategoriesView()
-        .environmentObject(WelcomeViewViewModel())
+    IngredientRecipesView(ingredient: "Chicken")
 }

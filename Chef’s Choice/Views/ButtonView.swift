@@ -27,3 +27,7 @@ struct ButtonView: View {
         )
     }
 }
+
+#Preview {
+    ButtonView(action: {}, text: "Button", colorButton: .pink)
+}

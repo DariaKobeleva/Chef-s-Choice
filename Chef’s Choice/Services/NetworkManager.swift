@@ -12,6 +12,9 @@ class NetworkManager: ObservableObject {
     @Published var categories: [Category] = []
     @Published var cuisines: [Cuisine] = []
     @Published var ingredients: [Ingredient] = []
+    @Published var recipes: [Recipe] = []
+    
+    private let baseUrl = "https://www.themealdb.com/api/json/v1/1/"
     
     func fetchData<T: Decodable>(
         urlString: String,
@@ -35,7 +38,7 @@ class NetworkManager: ObservableObject {
     
     func fetchCategories() async {
         await fetchData(
-            urlString: "https://www.themealdb.com/api/json/v1/1/categories.php",
+            urlString: "\(baseUrl)categories.php",
             responseType: CategoryResponse.self
         ) { [unowned self] response in
             categories = response.categories
@@ -44,7 +47,7 @@ class NetworkManager: ObservableObject {
     
     func fetchCuisines() async {
         await fetchData(
-            urlString: "https://www.themealdb.com/api/json/v1/1/list.php?a=list",
+            urlString: "\(baseUrl)list.php?a=list",
             responseType: CuisineResponse.self
         ) { [unowned self] response in
             cuisines = response.meals
@@ -53,10 +56,32 @@ class NetworkManager: ObservableObject {
     
     func fetchIngredient() async {
         await fetchData(
-            urlString: "https://www.themealdb.com/api/json/v1/1/list.php?i=list",
+            urlString: "\(baseUrl)list.php?i=list",
             responseType: IngredientResponse.self
         ) { [unowned self] response in
             ingredients = response.meals
+        }
+    }
+    
+    func fetchRecipesByCategories(_ category: String) async {
+        let urlString = "\(baseUrl)filter.php?i=\(category)"
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
+            self.recipes = response.meals
+        }
+    }
+    
+    
+    func fetchRecipesByCuisines(_ cuisine: String) async {
+        let urlString = "\(baseUrl)filter.php?a=\(cuisine)"
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
+            self.recipes = response.meals
+        }
+    }
+    
+    func fetchRecipesByIngredient(_ ingredient: String) async {
+        let urlString = "\(baseUrl)filter.php?i=\(ingredient)"
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
+            self.recipes = response.meals
         }
     }
 }

@@ -14,7 +14,6 @@ struct CuisinesRecipesView: View {
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     var body: some View {
-        NavigationStack {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                     ForEach(networkManager.recipes) { recipe in
@@ -36,11 +35,11 @@ struct CuisinesRecipesView: View {
                     }
                 }
             }
-            .navigationTitle("Cuisines")
+            .navigationTitle("\(cuisine)")
             .task {
                 await networkManager.fetchRecipesByCuisines(cuisine)
             }
-        }
+        
     }
 }
 

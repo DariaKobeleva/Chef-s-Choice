@@ -17,18 +17,20 @@ struct CategoriesView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(networkManager.categories) { category in
-                        VStack {
-                            AsyncImage(url: URL(string: category.strCategoryThumb)) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipped()
-                            } placeholder: {
-                                Image("defaultImage")
+                        NavigationLink(destination: CategoriesRecipesView(categories: category.strCategory)) {
+                            VStack {
+                                AsyncImage(url: URL(string: category.strCategoryThumb)) { image in
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipped()
+                                } placeholder: {
+                                    Image("defaultImage")
+                                }
+                                Text(category.strCategory)
+                                    .multilineTextAlignment(.center)
+                                    .font(.title2)
                             }
-                            Text(category.strCategory)
-                                .multilineTextAlignment(.center)
-                                .font(.title2)
                         }
                     }
                 }

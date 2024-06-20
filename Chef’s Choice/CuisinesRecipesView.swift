@@ -17,29 +17,31 @@ struct CuisinesRecipesView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                     ForEach(networkManager.recipes) { recipe in
-                        VStack {
-                            AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
-                                image
-                                    .resizable()
-                                    .clipped()
-                                    .cornerRadius(30)
-                                    .aspectRatio(contentMode: .fit)
-                            } placeholder: {
-                                Image("defaultImage")
+                        NavigationLink(destination: RecipeView(recipe: recipe)) {
+                            VStack {
+                                AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
+                                    image
+                                        .resizable()
+                                        .clipped()
+                                        .cornerRadius(30)
+                                        .aspectRatio(contentMode: .fit)
+                                } placeholder: {
+                                    Image("defaultImage")
+                                }
+                                Text(recipe.strMeal)
+                                    .multilineTextAlignment(.center)
+                                    .font(.title2)
                             }
-                            Text(recipe.strMeal)
-                                .multilineTextAlignment(.center)
-                                .font(.title2)
+                            
                         }
-                        
                     }
                 }
-            }
-            .navigationTitle("\(cuisine)")
-            .task {
-                await networkManager.fetchRecipesByCuisines(cuisine)
-            }
-        
+                .navigationTitle("\(cuisine)")
+                .task {
+                    await networkManager.fetchRecipesByCuisines(cuisine)
+                }
+            
+        }
     }
 }
 

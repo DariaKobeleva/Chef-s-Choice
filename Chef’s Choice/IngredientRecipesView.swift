@@ -13,11 +13,12 @@ struct IngredientRecipesView: View {
     @StateObject private var networkManager = NetworkManager()
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
-    var body: some View {
     
-            ScrollView {
-                LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                    ForEach(networkManager.recipes) { recipe in
+    var body: some View {
+        ScrollView {
+            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                ForEach(networkManager.recipes) { recipe in
+                    NavigationLink(destination: RecipeView(recipe: recipe)) {
                         VStack {
                             AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
                                 image
@@ -40,8 +41,10 @@ struct IngredientRecipesView: View {
             .task {
                 await networkManager.fetchRecipesByIngredient(ingredient)
             }
+        }
     }
 }
+
 
 
 #Preview {

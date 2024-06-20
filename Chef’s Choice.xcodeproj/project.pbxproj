@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2066AFDA2C14BFAC00407836 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2066AFD92C14BFAC00407836 /* Meal.swift */; };
 		2067F35A2C234CD100B12FCA /* IngredientRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */; };
 		2067F35C2C234CFE00B12FCA /* CuisinesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */; };
 		2067F35E2C234D4B00B12FCA /* CategoriesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */; };
@@ -29,10 +28,10 @@
 		20AACD0D2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACD0C2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift */; };
 		20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CADA082C0E1F8D007FBAAF /* RootView.swift */; };
 		20CADA0B2C0E1FAF007FBAAF /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CADA0A2C0E1FAF007FBAAF /* CategoriesView.swift */; };
+		20CC54572C24615B00700512 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC54562C24615B00700512 /* RecipeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2066AFD92C14BFAC00407836 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRecipesView.swift; sourceTree = "<group>"; };
 		2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinesRecipesView.swift; sourceTree = "<group>"; };
 		2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRecipesView.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		20AACD0C2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewViewModel.swift; sourceTree = "<group>"; };
 		20CADA082C0E1F8D007FBAAF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		20CADA0A2C0E1FAF007FBAAF /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		20CC54562C24615B00700512 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				20AACD082C0DFB8E00D97AB4 /* User.swift */,
-				2066AFD92C14BFAC00407836 /* Meal.swift */,
 				20868D102C17539500EEAF84 /* Category.swift */,
 				209FB5362C18817C005DE6C5 /* Cuisine.swift */,
 				209FB5382C18818C005DE6C5 /* Ingredient.swift */,
@@ -126,6 +125,7 @@
 				2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */,
 				20CADA0A2C0E1FAF007FBAAF /* CategoriesView.swift */,
 				2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */,
+				20CC54562C24615B00700512 /* RecipeView.swift */,
 				207B6BD22C0F7AE8002887BE /* Views */,
 				20CADA072C0E1E41007FBAAF /* WelcomeView */,
 				207B6BD12C0F2FC9002887BE /* Services */,
@@ -228,9 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2066AFDA2C14BFAC00407836 /* Meal.swift in Sources */,
 				20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */,
 				2067F35A2C234CD100B12FCA /* IngredientRecipesView.swift in Sources */,
+				20CC54572C24615B00700512 /* RecipeView.swift in Sources */,
 				20CADA0B2C0E1FAF007FBAAF /* CategoriesView.swift in Sources */,
 				209FB5352C187F6F005DE6C5 /* CuisinesView.swift in Sources */,
 				207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */,

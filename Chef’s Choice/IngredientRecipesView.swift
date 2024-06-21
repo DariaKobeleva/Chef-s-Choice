@@ -18,7 +18,7 @@ struct IngredientRecipesView: View {
         ScrollView {
             LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                 ForEach(networkManager.recipes) { recipe in
-                    NavigationLink(destination: RecipeView(recipe: recipe)) {
+                    NavigationLink(destination: RecipeView(recipeId: recipe.id)) {
                         VStack {
                             AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
                                 image

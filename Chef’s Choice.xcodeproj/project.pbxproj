@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2025BDE42C261B9D00A6BDAC /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025BDE32C261B9D00A6BDAC /* YTView.swift */; };
 		2067F35A2C234CD100B12FCA /* IngredientRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */; };
 		2067F35C2C234CFE00B12FCA /* CuisinesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */; };
 		2067F35E2C234D4B00B12FCA /* CategoriesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2025BDE32C261B9D00A6BDAC /* YTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
 		2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRecipesView.swift; sourceTree = "<group>"; };
 		2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinesRecipesView.swift; sourceTree = "<group>"; };
 		2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRecipesView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		207B6BD22C0F7AE8002887BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2025BDE32C261B9D00A6BDAC /* YTView.swift */,
 				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
 				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
 			);
@@ -240,6 +243,7 @@
 				20AACD0D2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift in Sources */,
 				20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */,
 				20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */,
+				2025BDE42C261B9D00A6BDAC /* YTView.swift in Sources */,
 				209FB5312C187C0C005DE6C5 /* ContentView.swift in Sources */,
 				20AACD092C0DFB8E00D97AB4 /* User.swift in Sources */,
 				209FB5392C18818C005DE6C5 /* Ingredient.swift in Sources */,

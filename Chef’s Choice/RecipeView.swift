@@ -37,7 +37,6 @@ struct RecipeView: View {
                     }
                     
                     
-                    
                     if let category = recipe.strCategory {
                         Text("Category: \(category)")
                             .font(.subheadline)

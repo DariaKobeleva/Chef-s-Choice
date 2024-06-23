@@ -30,6 +30,8 @@ struct CategoriesView: View {
                                 Text(category.strCategory)
                                     .multilineTextAlignment(.center)
                                     .font(.title2)
+                                    .foregroundStyle(.black)
+                                    
                             }
                         }
                     }

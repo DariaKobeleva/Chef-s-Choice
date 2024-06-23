@@ -9,10 +9,11 @@ import SwiftUI
 import WebKit
 
 struct YTView: View {
+    @StateObject private var networkManager = NetworkManager()
     let videoURL: String
     
     var body: some View {
-        if let videoID = extractYouTubeVideoID(from: videoURL) {
+        if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
             Video(videoID: videoID)
                 .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                 .shadow(radius: 5)
@@ -20,15 +21,6 @@ struct YTView: View {
             Text("Invalid YouTube URL")
                 .foregroundColor(.red)
         }
-    }
-    
-    func extractYouTubeVideoID(from url: String) -> String? {
-        let pattern = "(?<=v=|\\/v\\/|be\\/|embed\\/|\\/\\?v=|\\&v=|youtu\\.be\\/|watch\\?v%3D|\\/e\\/|\\/\\?vi=|\\&vi=)([a-zA-Z0-9_-]{11})"
-
-        if let range = url.range(of: pattern, options: .regularExpression) {
-            return String(url[range])
-        }
-        return nil
     }
 }
 

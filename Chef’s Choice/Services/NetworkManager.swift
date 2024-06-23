@@ -13,6 +13,7 @@ class NetworkManager: ObservableObject {
     @Published var ingredients: [Ingredient] = []
     @Published var recipes: [Recipe] = []
     @Published var selectedRecipe: Recipe?
+    @Published var videoID: String?
     
     private let baseUrl = "https://www.themealdb.com/api/json/v1/1/"
     
@@ -103,4 +104,13 @@ class NetworkManager: ObservableObject {
             recipes = response.meals
         }
     }
+    
+    func extractYouTubeVideoID(from url: String) -> String? {
+          let pattern = "(?<=v=|\\/v\\/|be\\/|embed\\/|\\/\\?v=|\\&v=|youtu\\.be\\/|watch\\?v%3D|\\/e\\/|\\/\\?vi=|\\&vi=)([a-zA-Z0-9_-]{11})"
+          
+          if let range = url.range(of: pattern, options: .regularExpression) {
+              return String(url[range])
+          }
+          return nil
+      }
 }

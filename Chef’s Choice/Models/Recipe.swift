@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Recipe: Codable, Identifiable {
+struct Recipe: Codable {
     let idMeal: String
     let strMeal: String
     let strMealThumb: String
@@ -35,8 +35,6 @@ struct Recipe: Codable, Identifiable {
     let strMeasure7: String?
     let strMeasure8: String?
     let strMeasure9: String?
-    
-    var id: String { idMeal }
     
     var ingredients: [String] {
         [

@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct RecipeView: View {
     @StateObject private var networkManager = NetworkManager()
+    @State private var showImage = false
+
     let recipeId: String
     
     var body: some View {
@@ -24,15 +27,19 @@ struct RecipeView: View {
                     if let youtubeURL = recipe.strYoutube {
                         YTView(videoURL: youtubeURL)
                     } else {
-                        AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
-                            image
+                        
+                        if let imageURL = URL(string: recipe.strMealThumb) {
+                            KFImage(imageURL)
                                 .resizable()
+                                .clipped()
+                                .cornerRadius(30)
                                 .aspectRatio(contentMode: .fit)
-                        } placeholder: {
+                        } else {
                             Image("defaultImage")
                                 .resizable()
+                                .clipped()
+                                .cornerRadius(30)
                                 .aspectRatio(contentMode: .fit)
-                                .padding(.horizontal, 20)
                         }
                     }
                     
@@ -54,9 +61,11 @@ struct RecipeView: View {
                         .padding(.top, 10)
                     
                     ForEach(
-                        Array(zip(recipe.ingredients, recipe.measures)),
-                        id: \.0
-                    ) { ingredient, measure in
+                        Array(zip(recipe.ingredients, recipe.measures)).indices,
+                        id: \.self
+                    ){ index in
+                        let ingredient = recipe.ingredients[index]
+                        let measure = recipe.measures[index]
                         Text("\(ingredient): \(measure)")
                     }
                     

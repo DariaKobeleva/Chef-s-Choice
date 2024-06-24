@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct IngredientsView: View {
     @StateObject private var networkManager = NetworkManager()
@@ -16,17 +17,15 @@ struct IngredientsView: View {
                 NavigationLink(destination: IngredientRecipesView(ingredient: ingredient.strIngredient)) {
                     HStack {
                         if let imageURL = ingredient.imageURL {
-                            AsyncImage(url: imageURL) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 70, height: 70)
-                            } placeholder: {
-                                Image("defaultImage")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 70, height: 70)
-                            }
+                            KFImage(imageURL)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
+                        } else {
+                            Image("defaultImage")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
                         }
                         Text(ingredient.strIngredient)
                             .font(.title2)

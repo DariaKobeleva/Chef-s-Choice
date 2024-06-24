@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CategoriesRecipesView: View {
     let categories: String
@@ -17,21 +18,19 @@ struct CategoriesRecipesView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                ForEach(networkManager.recipes) { recipe in
-                    NavigationLink(destination: RecipeView(recipeId: recipe.id)) {
+                ForEach(networkManager.recipes, id: \.idMeal) { recipe in
+                    NavigationLink(destination: RecipeView(recipeId: recipe.idMeal)) {
                         VStack {
-                            AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
-                                image
+                            if let imageURL = URL(string: recipe.strMealThumb) {
+                                KFImage(imageURL)
                                     .resizable()
                                     .clipped()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(maxWidth: 200, maxHeight: 200)
-                            } placeholder: {
+                            } else {
                                 Image("defaultImage")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: .infinity, maxHeight: 200)
                             }
+                            
                             Text(recipe.strMeal)
                                 .multilineTextAlignment(.center)
                                 .font(.title3)
@@ -40,7 +39,7 @@ struct CategoriesRecipesView: View {
                                 .frame(maxWidth: .infinity, alignment: .center)
                         }
                         .padding(.bottom, 10)
-                        .background(.cyan)
+                        .background(.cyan.opacity(0.4))
                         .cornerRadius(15)
                         .shadow(radius: 10)
                         

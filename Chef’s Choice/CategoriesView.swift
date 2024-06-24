@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CategoriesView: View {
     @StateObject private var networkManager = NetworkManager()
@@ -19,14 +20,16 @@ struct CategoriesView: View {
                     ForEach(networkManager.categories) { category in
                         NavigationLink(destination: CategoriesRecipesView(categories: category.strCategory)) {
                             VStack {
-                                AsyncImage(url: URL(string: category.strCategoryThumb)) { image in
-                                    image
+                                if let imageURL = URL(string: category.strCategoryThumb) {
+                                    KFImage(imageURL)
                                         .resizable()
-                                        .aspectRatio(contentMode: .fit)
                                         .clipped()
-                                } placeholder: {
+                                        .cornerRadius(30)
+                                        .aspectRatio(contentMode: .fit)
+                                } else {
                                     Image("defaultImage")
                                 }
+        
                                 Text(category.strCategory)
                                     .multilineTextAlignment(.center)
                                     .font(.title2)

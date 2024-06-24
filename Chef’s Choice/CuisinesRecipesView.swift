@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct CuisinesRecipesView: View {
     let cuisine: String
@@ -16,18 +17,19 @@ struct CuisinesRecipesView: View {
     var body: some View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                    ForEach(networkManager.recipes) { recipe in
-                        NavigationLink(destination: RecipeView(recipeId: recipe.id)) {
+                    ForEach(networkManager.recipes, id: \.idMeal) { recipe in
+                        NavigationLink(destination: RecipeView(recipeId: recipe.idMeal)) {
                             VStack {
-                                AsyncImage(url: URL(string: recipe.strMealThumb)) { image in
-                                    image
+                                if let imageURL = URL(string: recipe.strMealThumb) {
+                                    KFImage(imageURL)
                                         .resizable()
                                         .clipped()
                                         .cornerRadius(30)
                                         .aspectRatio(contentMode: .fit)
-                                } placeholder: {
+                                } else {
                                     Image("defaultImage")
                                 }
+
                                 Text(recipe.strMeal)
                                     .multilineTextAlignment(.center)
                                     .font(.title2)

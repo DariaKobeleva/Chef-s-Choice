@@ -51,6 +51,11 @@ struct Recipe: Codable {
             strMeasure9
         ].compactMap { $0 }
     }
+    
+    var ingredientsAndMeasures: [(String, String)] {
+        Array(zip(ingredients, measures))
+            .filter { !$0.0.isEmpty && !$0.1.isEmpty }
+    }
 }
 
 struct RecipeResponse: Codable {

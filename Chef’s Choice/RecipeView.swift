@@ -10,8 +10,7 @@ import Kingfisher
 
 struct RecipeView: View {
     @StateObject private var networkManager = NetworkManager()
-    @State private var showImage = false
-
+    
     let recipeId: String
     
     var body: some View {
@@ -60,12 +59,9 @@ struct RecipeView: View {
                         .font(.title2)
                         .padding(.top, 10)
                     
-                    ForEach(
-                        Array(zip(recipe.ingredients, recipe.measures)).indices,
-                        id: \.self
-                    ){ index in
-                        let ingredient = recipe.ingredients[index]
-                        let measure = recipe.measures[index]
+                    ForEach(recipe.ingredientsAndMeasures.indices, id: \.self) { index in
+                        let ingredient = recipe.ingredientsAndMeasures[index].0
+                        let measure = recipe.ingredientsAndMeasures[index].1
                         Text("\(ingredient): \(measure)")
                     }
                     
@@ -92,5 +88,5 @@ struct RecipeView: View {
 
 
 #Preview {
-    RecipeView(recipeId: "52772")
+    RecipeView(recipeId: "52791")
 }

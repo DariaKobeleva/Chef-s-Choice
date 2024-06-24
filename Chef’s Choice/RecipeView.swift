@@ -36,11 +36,11 @@ struct RecipeView: View {
                         }
                     }
                     
-                    
                     if let category = recipe.strCategory {
                         Text("Category: \(category)")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
+                            .padding(.top, 10)
                     }
                     
                     if let area = recipe.strArea {
@@ -49,9 +49,25 @@ struct RecipeView: View {
                             .foregroundColor(.secondary)
                     }
                     
+                    Text("Ingredients")
+                        .font(.title2)
+                        .padding(.top, 10)
+                    
+                    ForEach(
+                        Array(zip(recipe.ingredients, recipe.measures)),
+                        id: \.0
+                    ) { ingredient, measure in
+                        Text("\(ingredient): \(measure)")
+                    }
+                    
+                    Text("Instructions")
+                        .font(.title2)
+                        .padding(.top, 10)
+                    
                     if let instructions = recipe.strInstructions {
                         Text(instructions)
                     }
+                    
                 }
                 .padding()
             } else {
@@ -67,5 +83,5 @@ struct RecipeView: View {
 
 
 #Preview {
-    RecipeView(recipeId: "52771")
+    RecipeView(recipeId: "52772")
 }

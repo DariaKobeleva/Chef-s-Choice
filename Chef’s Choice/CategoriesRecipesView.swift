@@ -24,18 +24,30 @@ struct CategoriesRecipesView: View {
                                 image
                                     .resizable()
                                     .clipped()
-                                    .cornerRadius(30)
                                     .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 200, maxHeight: 200)
                             } placeholder: {
                                 Image("defaultImage")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: .infinity, maxHeight: 200)
                             }
                             Text(recipe.strMeal)
                                 .multilineTextAlignment(.center)
-                                .font(.title2)
+                                .font(.title3)
+                                .foregroundStyle(.white)
+                                .padding(.horizontal, 5)
+                                .frame(maxWidth: .infinity, alignment: .center)
                         }
+                        .padding(.bottom, 10)
+                        .background(.cyan)
+                        .cornerRadius(15)
+                        .shadow(radius: 10)
+                        
                     }
                 }
             }
+            .padding()
         }
         .navigationTitle("\(categories)")
         .task {

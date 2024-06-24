@@ -37,6 +37,22 @@ struct Recipe: Codable, Identifiable {
     let strMeasure9: String?
     
     var id: String { idMeal }
+    
+    var ingredients: [String] {
+        [
+            strIngredient1, strIngredient2, strIngredient3, strIngredient4,
+            strIngredient5, strIngredient6, strIngredient7, strIngredient8,
+            strIngredient9
+        ].compactMap { $0 }
+    }
+    
+    var measures: [String] {
+        [
+            strMeasure1, strMeasure2, strMeasure3, strMeasure4,
+            strMeasure5, strMeasure6, strMeasure7, strMeasure8,
+            strMeasure9
+        ].compactMap { $0 }
+    }
 }
 
 struct RecipeResponse: Codable {

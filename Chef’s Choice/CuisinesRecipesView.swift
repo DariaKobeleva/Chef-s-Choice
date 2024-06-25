@@ -21,11 +21,7 @@ struct CuisinesRecipesView: View {
                         NavigationLink(destination: RecipeDetailsView(recipeId: recipe.idMeal)) {
                             VStack {
                                 if let imageURL = URL(string: recipe.strMealThumb) {
-                                    KFImage(imageURL)
-                                        .resizable()
-                                        .clipped()
-                                        .cornerRadius(30)
-                                        .aspectRatio(contentMode: .fit)
+                                    CustomKFImageView(imageURL: imageURL)
                                 } else {
                                     Image("defaultImage")
                                 }

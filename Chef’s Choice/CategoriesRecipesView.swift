@@ -22,11 +22,7 @@ struct CategoriesRecipesView: View {
                     NavigationLink(destination: RecipeDetailsView(recipeId: recipe.idMeal)) {
                         VStack {
                             if let imageURL = URL(string: recipe.strMealThumb) {
-                                KFImage(imageURL)
-                                    .resizable()
-                                    .clipped()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 200, maxHeight: 200)
+                                CustomKFImageView(imageURL: imageURL)
                             } else {
                                 Image("defaultImage")
                             }
@@ -34,15 +30,12 @@ struct CategoriesRecipesView: View {
                             Text(recipe.strMeal)
                                 .multilineTextAlignment(.center)
                                 .font(.title3)
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.black)
                                 .padding(.horizontal, 5)
                                 .frame(maxWidth: .infinity, alignment: .center)
                         }
                         .padding(.bottom, 10)
-                        .background(.cyan.opacity(0.4))
-                        .cornerRadius(15)
-                        .shadow(radius: 10)
-                        
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
                     }
                 }
             }

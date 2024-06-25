@@ -14,7 +14,6 @@ struct CuisinesView: View {
         
         List(networkManager.cuisines) { cuisine in
             NavigationLink(destination: CuisinesRecipesView(cuisine: cuisine.strArea)) {
-                
                 Text(cuisine.strArea)
                     .font(.title2)
             }

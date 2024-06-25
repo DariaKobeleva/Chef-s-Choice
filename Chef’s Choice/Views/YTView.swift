@@ -15,21 +15,31 @@ struct YTView: View {
     let imageURL: String
     
     var body: some View {
-       
-            if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
-                Video(videoID: videoID)
-                    .frame(width: UIScreen.main.bounds.width - 20, height: 200)
-                    .shadow(radius: 5)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                
-            } else {
-                KFImage(URL(string: imageURL))
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: UIScreen.main.bounds.width - 40)
-                    .shadow(radius: 5)
-            }
-     
+        if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
+            Video(videoID: videoID)
+                .frame(width: UIScreen.main.bounds.width - 20, height: 200)
+                .shadow(radius: 5)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
+        } else {
+       //TODO: Доделать
+            KFImage(URL(string: imageURL))
+                .placeholder {
+                    Image(systemName: "defaultImage")
+                        .resizable()
+                        .clipped()
+                        .cornerRadius(30)
+                        .aspectRatio(contentMode: .fit)
+                }
+                .cacheOriginalImage()
+                .cacheMemoryOnly()
+                .fade(duration: 0.15)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: UIScreen.main.bounds.width - 40)
+                .shadow(radius: 5)
+            
+        }
     }
 }
 
@@ -49,7 +59,7 @@ struct Video: UIViewRepresentable {
 }
 
 #Preview {
-    YTView(videoURL: "https://www.youtube.com/watch?v=C3pAgB7pync&ab_channel=Adilicious", imageURL: "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")
+    YTView(videoURL: "", imageURL: "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")
 }
 
 

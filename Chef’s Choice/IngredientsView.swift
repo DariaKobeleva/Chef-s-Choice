@@ -16,9 +16,7 @@ struct IngredientsView: View {
             NavigationLink(destination: IngredientRecipesView(ingredient: ingredient.strIngredient)) {
                 HStack {
                     if let imageURL = ingredient.imageURL {
-                        KFImage(imageURL)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                       CustomKFImageView(imageURL: imageURL)
                             .frame(width: 70, height: 70)
                     } else {
                         Image("defaultImage")

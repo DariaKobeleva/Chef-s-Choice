@@ -15,19 +15,21 @@ struct YTView: View {
     let imageURL: String
     
     var body: some View {
-        VStack {
+       
             if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
                 Video(videoID: videoID)
-                    .frame(width: UIScreen.main.bounds.width - 20)
+                    .frame(width: UIScreen.main.bounds.width - 20, height: 200)
                     .shadow(radius: 5)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                
             } else {
                 KFImage(URL(string: imageURL))
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .frame(width: UIScreen.main.bounds.width - 40)
                     .shadow(radius: 5)
             }
-        }
+     
     }
 }
 
@@ -47,7 +49,7 @@ struct Video: UIViewRepresentable {
 }
 
 #Preview {
-    YTView(videoURL: "", imageURL: "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")
+    YTView(videoURL: "https://www.youtube.com/watch?v=C3pAgB7pync&ab_channel=Adilicious", imageURL: "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")
 }
 
 

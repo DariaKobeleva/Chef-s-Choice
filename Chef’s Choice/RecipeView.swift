@@ -79,5 +79,5 @@ struct RecipeView: View {
 
 
 #Preview {
-    RecipeView(recipeId: "52997")
+    RecipeView(recipeId: "52794")
 }

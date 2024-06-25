@@ -9,20 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TabView {
-            CategoriesView()
-                .tabItem {
-                    Label("Categories", systemImage: "list.bullet.clipboard.fill")
-                }
-            IngredientsView()
-                .tabItem {
-                    Label("Ingredients", systemImage: "carrot")
-                }
-            CuisinesView()
-                .tabItem {
-                    Label("Cuisines", systemImage: "flag")
-                }
-        }
+            TabView {
+                CategoriesView()
+                    .tabItem {
+                        Label("Categories", systemImage: "list.bullet.clipboard.fill")
+                    }
+                IngredientsView()
+                    .tabItem {
+                        Label("Ingredients", systemImage: "carrot")
+                    }
+                CuisinesView()
+                    .tabItem {
+                        Label("Cuisines", systemImage: "flag")
+                    }
+            }
     }
 }
 

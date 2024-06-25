@@ -21,6 +21,7 @@
 		209FB5372C18817C005DE6C5 /* Cuisine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FB5362C18817C005DE6C5 /* Cuisine.swift */; };
 		209FB5392C18818C005DE6C5 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FB5382C18818C005DE6C5 /* Ingredient.swift */; };
 		20A63F622C14C5490083F363 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63F612C14C5490083F363 /* NetworkManager.swift */; };
+		20A937512C2B084100CFBA29 /* MediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937502C2B084100CFBA29 /* MediaView.swift */; };
 		20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */; };
 		20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */; };
 		20AACCFF2C0DF36000D97AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20AACCFE2C0DF36000D97AB4 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		209FB5362C18817C005DE6C5 /* Cuisine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cuisine.swift; sourceTree = "<group>"; };
 		209FB5382C18818C005DE6C5 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		20A63F612C14C5490083F363 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		20A937502C2B084100CFBA29 /* MediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaView.swift; sourceTree = "<group>"; };
 		20AACCF72C0DF35E00D97AB4 /* Chef’s Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chef’s Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef_s_ChoiceApp.swift; sourceTree = "<group>"; };
 		20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				2025BDE32C261B9D00A6BDAC /* YTView.swift */,
+				20A937502C2B084100CFBA29 /* MediaView.swift */,
 				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
 				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
 			);
@@ -244,6 +247,7 @@
 				20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */,
 				2067F35A2C234CD100B12FCA /* IngredientRecipesView.swift in Sources */,
 				20CC54572C24615B00700512 /* RecipeView.swift in Sources */,
+				20A937512C2B084100CFBA29 /* MediaView.swift in Sources */,
 				20CADA0B2C0E1FAF007FBAAF /* CategoriesView.swift in Sources */,
 				209FB5352C187F6F005DE6C5 /* CuisinesView.swift in Sources */,
 				207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */,

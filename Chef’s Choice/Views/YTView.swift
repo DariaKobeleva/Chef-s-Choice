@@ -7,19 +7,26 @@
 
 import SwiftUI
 import WebKit
+import Kingfisher
 
 struct YTView: View {
     @StateObject private var networkManager = NetworkManager()
     let videoURL: String
+    let imageURL: String
     
     var body: some View {
-        if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
-            Video(videoID: videoID)
-                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
-                .shadow(radius: 5)
-        } else {
-            Text("Invalid YouTube URL")
-                .foregroundColor(.red)
+        VStack {
+            if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
+                Video(videoID: videoID)
+                    .frame(width: UIScreen.main.bounds.width - 20)
+                    .shadow(radius: 5)
+            } else {
+                KFImage(URL(string: imageURL))
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width - 40)
+                    .shadow(radius: 5)
+            }
         }
     }
 }
@@ -40,7 +47,7 @@ struct Video: UIViewRepresentable {
 }
 
 #Preview {
-    YTView(videoURL: "https://www.youtube.com/watch?v=oJvbsVSblfk")
+    YTView(videoURL: "", imageURL: "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")
 }
 
 

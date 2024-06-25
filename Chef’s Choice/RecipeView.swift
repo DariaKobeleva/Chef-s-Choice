@@ -24,22 +24,13 @@ struct RecipeView: View {
                         .fontWeight(.bold)
                     
                     if let youtubeURL = recipe.strYoutube {
-                        YTView(videoURL: youtubeURL)
+                        YTView(videoURL: youtubeURL, imageURL: recipe.strMealThumb)
                     } else {
-                        
-                        if let imageURL = URL(string: recipe.strMealThumb) {
-                            KFImage(imageURL)
-                                .resizable()
-                                .clipped()
-                                .cornerRadius(30)
-                                .aspectRatio(contentMode: .fit)
-                        } else {
-                            Image("defaultImage")
-                                .resizable()
-                                .clipped()
-                                .cornerRadius(30)
-                                .aspectRatio(contentMode: .fit)
-                        }
+                        Image("defaultImage")
+                            .resizable()
+                            .clipped()
+                            .cornerRadius(30)
+                            .aspectRatio(contentMode: .fit)
                     }
                     
                     if let category = recipe.strCategory {
@@ -88,5 +79,5 @@ struct RecipeView: View {
 
 
 #Preview {
-    RecipeView(recipeId: "52791")
+    RecipeView(recipeId: "52997")
 }

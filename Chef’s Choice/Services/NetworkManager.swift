@@ -42,8 +42,8 @@ class NetworkManager: ObservableObject {
             await fetchData(
                 urlString: urlString,
                 responseType: RecipeResponse.self
-            ) { [unowned self] response in
-                selectedRecipe = response.meals.first
+            ) { response in
+                self.selectedRecipe = response.meals.first
             }
         }
     
@@ -51,8 +51,8 @@ class NetworkManager: ObservableObject {
         await fetchData(
             urlString: "\(baseUrl)categories.php",
             responseType: CategoryResponse.self
-        ) { [unowned self] response in
-            categories = response.categories
+        ) { response in
+            self.categories = response.categories
         }
     }
     
@@ -60,8 +60,8 @@ class NetworkManager: ObservableObject {
         await fetchData(
             urlString: "\(baseUrl)list.php?a=list",
             responseType: CuisineResponse.self
-        ) { [unowned self] response in
-            cuisines = response.meals
+        ) { response in
+            self.cuisines = response.meals
         }
     }
     
@@ -69,8 +69,8 @@ class NetworkManager: ObservableObject {
         await fetchData(
             urlString: "\(baseUrl)list.php?i=list",
             responseType: IngredientResponse.self
-        ) { [unowned self] response in
-            ingredients = response.meals
+        ) { response in
+            self.ingredients = response.meals
         }
     }
     
@@ -79,8 +79,8 @@ class NetworkManager: ObservableObject {
         await fetchData(
             urlString: urlString,
             responseType: RecipeResponse.self
-        ) { [unowned self] response in
-            recipes = response.meals
+        ) { response in
+            self.recipes = response.meals
         }
     }
     
@@ -90,8 +90,8 @@ class NetworkManager: ObservableObject {
         await fetchData(
             urlString: urlString,
             responseType: RecipeResponse.self
-        ) { [unowned self] response in
-            recipes = response.meals
+        ) { response in
+            self.recipes = response.meals
         }
     }
     
@@ -100,17 +100,17 @@ class NetworkManager: ObservableObject {
         await fetchData(
             urlString: urlString,
             responseType: RecipeResponse.self
-        ) { [unowned self] response in
-            recipes = response.meals
+        ) { response in
+            self.recipes = response.meals
         }
     }
     
     func extractYouTubeVideoID(from url: String) -> String? {
-          let pattern = "(?<=v=|\\/v\\/|be\\/|embed\\/|\\/\\?v=|\\&v=|youtu\\.be\\/|watch\\?v%3D|\\/e\\/|\\/\\?vi=|\\&vi=)([a-zA-Z0-9_-]{11})"
-          
-          if let range = url.range(of: pattern, options: .regularExpression) {
-              return String(url[range])
-          }
-          return nil
-      }
+        let pattern = "(?<=v=|\\/v\\/|be\\/|embed\\/|\\/\\?v=|\\&v=|youtu\\.be\\/|watch\\?v%3D|\\/e\\/|\\/\\?vi=|\\&vi=)([a-zA-Z0-9_-]{11})"
+        
+        if let range = url.range(of: pattern, options: .regularExpression) {
+            return String(url[range])
+        }
+        return nil
+    }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkManager: ObservableObject {
+final class NetworkManager: ObservableObject {
     @Published var categories: [Category] = []
     @Published var cuisines: [Cuisine] = []
     @Published var ingredients: [Ingredient] = []

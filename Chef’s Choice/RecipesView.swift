@@ -19,7 +19,9 @@ struct RecipesView: View {
             NavigationLink(destination: CuisinesView()) {
                 Text("Cuisines")
             }
+            .navigationTitle("Recipes")
         }
+        .listStyle(.plain)
     }
 }
 

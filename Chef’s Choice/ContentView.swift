@@ -9,20 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        NavigationView {
             TabView {
-                CategoriesView()
+                RecipesView()
                     .tabItem {
-                        Label("Categories", systemImage: "list.bullet.clipboard.fill")
-                    }
-                IngredientsView()
-                    .tabItem {
-                        Label("Ingredients", systemImage: "carrot")
-                    }
-                CuisinesView()
-                    .tabItem {
-                        Label("Cuisines", systemImage: "flag")
+                        Label("Recipes", systemImage: "fork.knife")
                     }
             }
+            .listStyle(.plain)
+            .navigationTitle("Recipes")
+        }
+        
     }
 }
 

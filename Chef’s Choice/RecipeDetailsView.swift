@@ -1,5 +1,5 @@
 //
-//  RecipeView.swift
+//  RecipeDetailsView.swift
 //  Chef’s Choice
 //
 //  Created by Дарья Кобелева on 20.06.2024.
@@ -8,7 +8,7 @@
 import SwiftUI
 import Kingfisher
 
-struct RecipeView: View {
+struct RecipeDetailsView: View {
     @StateObject private var networkManager = NetworkManager()
     
     let recipeId: String
@@ -73,11 +73,10 @@ struct RecipeView: View {
                     }
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 
 #Preview {
-    RecipeView(recipeId: "52794")
+    RecipeDetailsView(recipeId: "52794")
 }

@@ -18,7 +18,7 @@ struct CuisinesRecipesView: View {
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 20) {
                     ForEach(networkManager.recipes, id: \.idMeal) { recipe in
-                        NavigationLink(destination: RecipeView(recipeId: recipe.idMeal)) {
+                        NavigationLink(destination: RecipeDetailsView(recipeId: recipe.idMeal)) {
                             VStack {
                                 if let imageURL = URL(string: recipe.strMealThumb) {
                                     KFImage(imageURL)

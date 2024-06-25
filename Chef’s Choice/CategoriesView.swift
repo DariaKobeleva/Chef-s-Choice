@@ -14,7 +14,7 @@ struct CategoriesView: View {
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     
     var body: some View {
-        NavigationStack {
+      
             ScrollView {
                 LazyVGrid(columns: adaptiveColumns, spacing: 10) {
                     ForEach(networkManager.categories) { category in
@@ -35,7 +35,7 @@ struct CategoriesView: View {
                                     .font(.title2)
                                     .foregroundStyle(.black)
                                     
-                            }
+                            
                         }
                     }
                 }

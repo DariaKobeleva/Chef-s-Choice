@@ -11,13 +11,17 @@ struct WelcomeView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
 
     var body: some View {
-        VStack {
+        VStack(spacing: 20) {
             Image("defaultImage")
             Text("Hi there!")
             Text("What's your name?")
             TextField("Please enter your name", text: $welcomeViewVM.user.name)
+                .frame(minHeight: 50)
                 .multilineTextAlignment(.center)
-                .padding(.all, 48)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(.gray, lineWidth: 2).opacity(0.6)
+                )
             
             ButtonView(
                 action: welcomeViewVM.login,
@@ -26,6 +30,7 @@ struct WelcomeView: View {
                 isDisabled: welcomeViewVM.user.name.isEmpty
             )
         }
+        .padding(.horizontal, 40)
     }
 }
 

@@ -140,8 +140,8 @@
 			children = (
 				20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */,
 				209FB5302C187C0C005DE6C5 /* ContentView.swift */,
-				209FB5322C187D10005DE6C5 /* IngredientsView.swift */,
 				2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */,
+				209FB5322C187D10005DE6C5 /* IngredientsView.swift */,
 				209FB5342C187F6F005DE6C5 /* CuisinesView.swift */,
 				2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */,
 				20CADA0A2C0E1FAF007FBAAF /* CategoriesView.swift */,

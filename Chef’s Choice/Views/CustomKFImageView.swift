@@ -14,6 +14,12 @@ struct CustomKFImageView: View {
     
     var body: some View {
         KFImage(imageURL)
+            .onSuccess { result in
+                print("Image loaded from cache: \(result.cacheType)")
+            }
+            .onFailure { error in
+                print("Error: \(error)")
+            }
             .placeholder {
                 Image("defaultImage")
                     .resizable()
@@ -27,6 +33,8 @@ struct CustomKFImageView: View {
             .resizable()
             .aspectRatio(contentMode: .fit)
             .clipShape(RoundedRectangle(cornerRadius: 30))
+            
+        
     }
 }
 

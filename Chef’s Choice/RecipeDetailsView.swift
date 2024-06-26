@@ -23,8 +23,9 @@ struct RecipeDetailsView: View {
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
-                    if let youtubeURL = recipe.strYoutube {
-                        YTView(videoURL: youtubeURL, imageURL: recipe.strMealThumb)
+                    if let youtubeURL = recipe.strYoutube,
+                       let imageURL = URL(string: recipe.strMealThumb) {
+                        YTView(videoURL: youtubeURL, imageURL: imageURL)
                     } else {
                         Image("defaultImage")
                             .resizable()

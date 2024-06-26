@@ -12,7 +12,7 @@ import Kingfisher
 struct YTView: View {
     @StateObject private var networkManager = NetworkManager()
     let videoURL: String
-    let imageURL: String
+    let imageURL: URL
     
     var body: some View {
         if let videoID = networkManager.extractYouTubeVideoID(from: videoURL) {
@@ -23,21 +23,23 @@ struct YTView: View {
             
         } else {
        //TODO: Доделать
-            KFImage(URL(string: imageURL))
-                .placeholder {
-                    Image(systemName: "defaultImage")
-                        .resizable()
-                        .clipped()
-                        .cornerRadius(30)
-                        .aspectRatio(contentMode: .fit)
-                }
-                .cacheOriginalImage()
-                .cacheMemoryOnly()
-                .fade(duration: 0.15)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: UIScreen.main.bounds.width - 40)
-                .shadow(radius: 5)
+            CustomKFImageView(imageURL: imageURL)
+            //            KFImage(URL(string: imageURL))
+            //                .placeholder {
+            //                    ProgressView()
+            //                    Image("defaultImage")
+            //                        .resizable()
+            //                        .clipped()
+            //                        .cornerRadius(30)
+            //                        .aspectRatio(contentMode: .fit)
+            //                }
+            //                .cacheOriginalImage()
+            //                .cacheMemoryOnly()
+            //                .fade(duration: 0.15)
+            //                .resizable()
+            //                .aspectRatio(contentMode: .fit)
+            //                .frame(width: UIScreen.main.bounds.width - 40)
+            //                .shadow(radius: 5)
             
         }
     }
@@ -59,7 +61,7 @@ struct Video: UIViewRepresentable {
 }
 
 #Preview {
-    YTView(videoURL: "", imageURL: "https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")
+    YTView(videoURL: "", imageURL: URL(string:"https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")!)
 }
 
 

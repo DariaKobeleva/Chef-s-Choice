@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @AppStorage("user") private var userData: Data?
+    @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
     
     var body: some View {
         VStack {
@@ -19,24 +19,18 @@ struct ProfileView: View {
                 .aspectRatio(contentMode: .fit)
             List {
                 VStack {
-                    if let userData = userData,
-                       let user = try? JSONDecoder().decode(User.self, from: userData) {
-                        Text("\(user.name)")
-                            .font(.largeTitle)
-                    } else {
-                        Text("No user data available")
-                    }
-                    
+                    Text("\(welcomeViewVM.user.name)")
+                        .font(.largeTitle)
                 }
-                .listStyle(.insetGrouped)
-                
-                // ButtonView(action: storageManager.clear, text: "Log Out", colorButton: .cyan)
+                .listStyle(.plain)
             }
             .padding()
+            ButtonView(action: welcomeViewVM.logout, text: "Log Out", colorButton: .cyan, isDisabled: false)
         }
     }
 }
 
 #Preview {
     ProfileView()
+        .environmentObject(WelcomeViewViewModel())
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
-
+    
     var body: some View {
         VStack(spacing: 20) {
             Image("defaultImage")

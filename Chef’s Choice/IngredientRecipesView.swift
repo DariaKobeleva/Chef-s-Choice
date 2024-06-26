@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct IngredientRecipesView: View {
     let ingredient: String

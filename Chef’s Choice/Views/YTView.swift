@@ -7,7 +7,6 @@
 
 import SwiftUI
 import WebKit
-import Kingfisher
 
 struct YTView: View {
     @StateObject private var networkManager = NetworkManager()
@@ -22,25 +21,7 @@ struct YTView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
         } else {
-       //TODO: Доделать
             CustomKFImageView(imageURL: imageURL)
-            //            KFImage(URL(string: imageURL))
-            //                .placeholder {
-            //                    ProgressView()
-            //                    Image("defaultImage")
-            //                        .resizable()
-            //                        .clipped()
-            //                        .cornerRadius(30)
-            //                        .aspectRatio(contentMode: .fit)
-            //                }
-            //                .cacheOriginalImage()
-            //                .cacheMemoryOnly()
-            //                .fade(duration: 0.15)
-            //                .resizable()
-            //                .aspectRatio(contentMode: .fit)
-            //                .frame(width: UIScreen.main.bounds.width - 40)
-            //                .shadow(radius: 5)
-            
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
-    
+
     var body: some View {
         VStack {
             Image("defaultImage")
@@ -19,7 +19,12 @@ struct WelcomeView: View {
                 .multilineTextAlignment(.center)
                 .padding(.all, 48)
             
-            ButtonView(action: welcomeViewVM.login, text: "Continue", colorButton: .blue)
+            ButtonView(
+                action: welcomeViewVM.login,
+                text: "Continue",
+                colorButton: .green,
+                isDisabled: welcomeViewVM.user.name.isEmpty
+            )
         }
     }
 }

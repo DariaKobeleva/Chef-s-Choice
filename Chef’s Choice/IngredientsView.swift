@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Kingfisher
 
 struct IngredientsView: View {
     @StateObject private var networkManager = NetworkManager()

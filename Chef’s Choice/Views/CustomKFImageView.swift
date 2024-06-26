@@ -27,9 +27,8 @@ struct CustomKFImageView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 30))
                     .aspectRatio(contentMode: .fit)
             }
-            .cacheOriginalImage()
             .cacheMemoryOnly()
-            .fade(duration: 0.15)
+            .fade(duration: 1)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .clipShape(RoundedRectangle(cornerRadius: 30))

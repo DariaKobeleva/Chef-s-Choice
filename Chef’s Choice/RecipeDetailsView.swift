@@ -18,10 +18,6 @@ struct RecipeDetailsView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Divider()
                     
-                    Text(recipe.strMeal)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                    
                     if let youtubeURL = recipe.strYoutube,
                        let imageURL = URL(string: recipe.strMealThumb) {
                         YTView(videoURL: youtubeURL, imageURL: imageURL)
@@ -32,6 +28,10 @@ struct RecipeDetailsView: View {
                             .cornerRadius(30)
                             .aspectRatio(contentMode: .fit)
                     }
+                    
+                    Text(recipe.strMeal)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
                     
                     if let category = recipe.strCategory {
                         Text("Category: \(category)")
@@ -64,8 +64,10 @@ struct RecipeDetailsView: View {
                         Text(instructions)
                     }
                     
+                    
                 }
                 .padding()
+                .navigationTitle(recipe.strCategory ?? recipe.strMeal)
             } else {
                 ProgressView()
                     .task {

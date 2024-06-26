@@ -35,7 +35,6 @@ struct IngredientRecipesView: View {
                                 .multilineTextAlignment(.center)
                                 .font(.title2)
                         }
-                        
                     }
                 }
             }

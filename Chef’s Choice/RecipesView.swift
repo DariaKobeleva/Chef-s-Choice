@@ -9,19 +9,21 @@ import SwiftUI
 
 struct RecipesView: View {
     var body: some View {
-        List {
-            NavigationLink(destination: CategoriesView()) {
-                Text("Categories")
+        NavigationStack {
+            List {
+                NavigationLink(destination: CategoriesView()) {
+                    Text("Categories")
+                }
+                NavigationLink(destination: IngredientsView()) {
+                    Text("Ingredients")
+                }
+                NavigationLink(destination: CuisinesView()) {
+                    Text("Cuisines")
+                }
+                .navigationTitle("Recipes")
             }
-            NavigationLink(destination: IngredientsView()) {
-                Text("Ingredients")
-            }
-            NavigationLink(destination: CuisinesView()) {
-                Text("Cuisines")
-            }
-            .navigationTitle("Recipes")
+            .listStyle(.plain)
         }
-        .listStyle(.plain)
     }
 }
 

@@ -16,8 +16,6 @@ struct RecipeDetailsView: View {
         ScrollView {
             if let recipe = networkManager.selectedRecipe {
                 VStack(alignment: .leading, spacing: 10) {
-                    Divider()
-                    
                     if let youtubeURL = recipe.strYoutube,
                        let imageURL = URL(string: recipe.strMealThumb) {
                         YTView(videoURL: youtubeURL, imageURL: imageURL)
@@ -28,10 +26,12 @@ struct RecipeDetailsView: View {
                             .cornerRadius(30)
                             .aspectRatio(contentMode: .fit)
                     }
-                    
+    
                     Text(recipe.strMeal)
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                    
+                    Divider()
                     
                     if let category = recipe.strCategory {
                         Text("Category: \(category)")

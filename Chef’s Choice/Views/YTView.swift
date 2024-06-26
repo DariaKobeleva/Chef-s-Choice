@@ -19,7 +19,6 @@ struct YTView: View {
                 .frame(width: UIScreen.main.bounds.width - 20, height: 200)
                 .shadow(radius: 5)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-            
         } else {
             CustomKFImageView(imageURL: imageURL)
         }

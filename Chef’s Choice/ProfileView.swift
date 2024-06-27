@@ -19,18 +19,25 @@ struct ProfileView: View {
                     .frame(width: 200, height: 200)
                     .aspectRatio(contentMode: .fit)
                 List {
-                    VStack {
-                        TextField(welcomeViewVM.user.name, text: $welcomeViewVM.user.name)
-                    }
-                    .listStyle(.plain)
+                    TextField("Enter your name", text: $welcomeViewVM.user.name)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding(.vertical, 5)
                 }
                 .padding()
-                ButtonView(action: welcomeViewVM.logout, text: "Log Out", colorButton: .gray.opacity(0.4), isDisabled: false)
             }
             .navigationTitle("Chef \(welcomeViewVM.user.name)")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: welcomeViewVM.logout) {
+                        Image(systemName: "rectangle.portrait.and.arrow.right")
+                    }
+                    
+                }
+            }
         }
     }
 }
+
 
 #Preview {
     ProfileView()

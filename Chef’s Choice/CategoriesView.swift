@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CategoriesView: View {
     @StateObject private var networkManager = NetworkManager()
-    @EnvironmentObject var favorites: Favorites
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     

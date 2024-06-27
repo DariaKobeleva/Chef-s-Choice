@@ -11,33 +11,32 @@ struct CuisinesRecipesView: View {
     let cuisine: String
     
     @StateObject private var networkManager = NetworkManager()
-    @EnvironmentObject var favorites: Favorites
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     var body: some View {
-            ScrollView {
-                LazyVGrid(columns: adaptiveColumns, spacing: 20) {
-                    ForEach(networkManager.recipes, id: \.idMeal) { recipe in
-                        NavigationLink(destination: RecipeDetailsView(recipeId: recipe.idMeal)) {
-                            VStack {
-                                if let imageURL = URL(string: recipe.strMealThumb) {
-                                    CustomKFImageView(imageURL: imageURL)
-                                } else {
-                                    Image("defaultImage")
-                                }
-
-                                Text(recipe.strMeal)
-                                    .multilineTextAlignment(.center)
-                                    .font(.title2)
+        ScrollView {
+            LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                ForEach(networkManager.recipes, id: \.idMeal) { recipe in
+                    NavigationLink(destination: RecipeDetailsView(recipeId: recipe.idMeal)) {
+                        VStack {
+                            if let imageURL = URL(string: recipe.strMealThumb) {
+                                CustomKFImageView(imageURL: imageURL)
+                            } else {
+                                Image("defaultImage")
                             }
                             
+                            Text(recipe.strMeal)
+                                .multilineTextAlignment(.center)
+                                .font(.title2)
                         }
+                        
                     }
                 }
-                .navigationTitle("\(cuisine)")
-                .task {
-                    await networkManager.fetchRecipesByCuisines(cuisine)
-                }
+            }
+            .navigationTitle("\(cuisine)")
+            .task {
+                await networkManager.fetchRecipesByCuisines(cuisine)
+            }
             
         }
     }

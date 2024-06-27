@@ -9,16 +9,45 @@ import SwiftUI
 
 struct FavoriteRecipesView: View {
     @EnvironmentObject var favorites: Favorites
+    private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     
     var body: some View {
-        NavigationView {
-            List(Array(favorites.favoriteRecipes), id: \.self) { recipeId in
-                Text(recipeId)
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: adaptiveColumns, spacing: 20) {
+                    ForEach(Array(favorites.favoriteRecipes), id: \.idMeal) { recipe in
+                        NavigationLink(destination: RecipeDetailsView(recipeId: recipe.idMeal)) {
+                            VStack {
+                                if let imageURL = URL(string: recipe.strMealThumb) {
+                                    CustomKFImageView(imageURL: imageURL)
+                                } else {
+                                    Image("defaultImage")
+                                }
+                                
+                                Text(recipe.strMeal)
+                                    .multilineTextAlignment(.center)
+                                    .font(.title3)
+                                    .foregroundStyle(.black)
+                                    .padding(.horizontal, 5)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                            }
+                            .padding(.bottom, 10)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                        }
+                    }
+                }
+                .padding()
             }
-            .navigationBarTitle("Favorite Recipes")
+            .navigationTitle("Favorite Recipes")
         }
+        
     }
 }
+
+
+
+
+
 
 #Preview {
     FavoriteRecipesView()

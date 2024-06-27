@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @EnvironmentObject var favorites: Favorites
-    
+struct ContentView: View {    
     var body: some View {
         TabView {
             RecipesView()

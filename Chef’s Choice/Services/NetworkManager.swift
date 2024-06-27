@@ -105,10 +105,6 @@ final class NetworkManager: ObservableObject {
         }
     }
     
-    func getRecipeById(_ id: String) -> Recipe? {
-        return recipes.first { $0.idMeal == id }
-    }
-    
     func extractYouTubeVideoID(from url: String) -> String? {
         let pattern = "(?<=v=|\\/v\\/|be\\/|embed\\/|\\/\\?v=|\\&v=|youtu\\.be\\/|watch\\?v%3D|\\/e\\/|\\/\\?vi=|\\&vi=)([a-zA-Z0-9_-]{11})"
         

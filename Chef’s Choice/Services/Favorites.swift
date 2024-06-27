@@ -9,12 +9,12 @@ import Foundation
 import SwiftUI
 
 final class Favorites: ObservableObject {
-   @Published var favoriteRecipes: Set<String> = []
+    @Published var favoriteRecipes: Set<Recipe> = []
     
     private let key = "Favorites"
     
     init() {
-        if let savedRecipes = UserDefaults.standard.object(forKey: key) as? [String] {
+        if let savedRecipes = UserDefaults.standard.object(forKey: key) as? [Recipe] {
             favoriteRecipes = Set(savedRecipes)
         } else {
             favoriteRecipes = []
@@ -22,20 +22,21 @@ final class Favorites: ObservableObject {
     }
     
     func contains(_ recipe: Recipe) -> Bool {
-        favoriteRecipes.contains(recipe.idMeal)
+        favoriteRecipes.contains(recipe)
     }
     
     func add(_ recipe: Recipe) {
-        favoriteRecipes.insert(recipe.idMeal)
+        favoriteRecipes.insert(recipe)
         save()
     }
     
     func remove(_ recipe: Recipe) {
-        favoriteRecipes.remove(recipe.idMeal)
+        favoriteRecipes.remove(recipe)
         save()
     }
     
+    //TODO: Realm realisation
     func save() {
-        UserDefaults.standard.set(Array(favoriteRecipes), forKey: key)
+        
     }
 }

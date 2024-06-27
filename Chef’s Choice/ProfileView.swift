@@ -11,21 +11,23 @@ struct ProfileView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
     
     var body: some View {
-        VStack {
-            Spacer()
-            Image(systemName: "person.fill")
-                .resizable()
-                .frame(width: 200, height: 200)
-                .aspectRatio(contentMode: .fit)
-            List {
-                VStack {
-                    Text("\(welcomeViewVM.user.name)")
-                        .font(.largeTitle)
+        NavigationStack {
+            VStack {
+                Spacer()
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .aspectRatio(contentMode: .fit)
+                List {
+                    VStack {
+                        TextField(welcomeViewVM.user.name, text: $welcomeViewVM.user.name)
+                    }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
+                .padding()
+                ButtonView(action: welcomeViewVM.logout, text: "Log Out", colorButton: .gray.opacity(0.4), isDisabled: false)
             }
-            .padding()
-            ButtonView(action: welcomeViewVM.logout, text: "Log Out", colorButton: .cyan, isDisabled: false)
+            .navigationTitle("Chef \(welcomeViewVM.user.name)")
         }
     }
 }

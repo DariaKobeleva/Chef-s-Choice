@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class FavoritesStorageManager: ObservableObject {
     @Published var favoriteRecipes: Set<Recipe> = []

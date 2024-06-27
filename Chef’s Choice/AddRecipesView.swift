@@ -8,16 +8,11 @@
 import SwiftUI
 
 struct AddRecipesView: View {
+    
     var body: some View {
         NavigationStack {
             Text("AddRecipesView")
-            
-                .navigationTitle("My Recipe")
-                .toolbar {
-                    
-                }
         }
-        
     }
 }
 

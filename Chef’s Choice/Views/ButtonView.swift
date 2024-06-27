@@ -14,22 +14,29 @@ struct ButtonView: View {
     var isDisabled: Bool
     
     var body: some View {
-        Button(action: action)  {
+        Button(action: action) {
             Text(text)
                 .fontWeight(.bold)
-                .foregroundStyle(isDisabled ? .white.opacity(0.5) : .white)
+                .foregroundColor(isDisabled ? .white.opacity(0.5) : .white)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
+                .background(
+                    Group {
+                        if isDisabled {
+                            Color.gray.opacity(0.6)
+                        } else {
+                            LinearGradient(gradient: Gradient(colors: [colorButton.opacity(0.8), colorButton]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        }
+                    }
+                )
+                .cornerRadius(15)
+                .shadow(color: isDisabled ? .clear : colorButton.opacity(0.6), radius: 5, x: 3, y: 3)
         }
-        .frame(width: 100, height: 50)
-        .background(isDisabled ? .gray.opacity(0.6) : colorButton)
-        .clipShape(.rect(cornerRadius: 20))
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(.gray, lineWidth: 2).opacity(0.6)
-        )
         .disabled(isDisabled)
+        .padding(.horizontal)
     }
 }
 
 #Preview {
-    ButtonView(action: {}, text: "Button", colorButton: .pink, isDisabled: true)
+    ButtonView(action: {}, text: "Button", colorButton: .pink, isDisabled: false)
 }

@@ -10,10 +10,10 @@ import SwiftUI
 @main
 struct Chef_s_ChoiceApp: App {
     @StateObject private var welcomeViewVM = WelcomeViewViewModel(
-        user: StorageManager.shared.fetchUser()
+        user: UserStorageManager.shared.fetchUser()
     )
+    @StateObject private var favorites = FavoritesStorageManager.shared
     
-    @StateObject var favorites = Favorites()
     var body: some Scene {
         WindowGroup {
             RootView()

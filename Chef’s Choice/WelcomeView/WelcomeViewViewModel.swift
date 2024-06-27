@@ -10,7 +10,7 @@ import SwiftUI
 final class WelcomeViewViewModel: ObservableObject {
     @Published var user = User()
     
-    private let storageManager = StorageManager.shared
+    private let storageManager = UserStorageManager.shared
     
     init(user: User = User()) {
         self.user = user

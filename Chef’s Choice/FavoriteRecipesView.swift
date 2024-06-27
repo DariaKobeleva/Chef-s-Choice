@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavoriteRecipesView: View {
-    @EnvironmentObject var favorites: Favorites
+    @EnvironmentObject var favorites: FavoritesStorageManager
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     
     var body: some View {
@@ -51,5 +51,5 @@ struct FavoriteRecipesView: View {
 
 #Preview {
     FavoriteRecipesView()
-        .environmentObject(Favorites())
+        .environmentObject(FavoritesStorageManager.shared)
 }

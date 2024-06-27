@@ -6,20 +6,15 @@
 //
 
 import Foundation
-import SwiftUI
 
-final class Favorites: ObservableObject {
+final class FavoritesStorageManager: ObservableObject {
     @Published var favoriteRecipes: Set<Recipe> = []
+    
+    static let shared = FavoritesStorageManager()
     
     private let key = "Favorites"
     
-    init() {
-        if let savedRecipes = UserDefaults.standard.object(forKey: key) as? [Recipe] {
-            favoriteRecipes = Set(savedRecipes)
-        } else {
-            favoriteRecipes = []
-        }
-    }
+    private init() {}
     
     func contains(_ recipe: Recipe) -> Bool {
         favoriteRecipes.contains(recipe)

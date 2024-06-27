@@ -6,8 +6,8 @@
 //
 import SwiftUI
 
-final class StorageManager {
-    static let shared = StorageManager()
+final class UserStorageManager {
+    static let shared = UserStorageManager()
     
     @AppStorage("user") private var userData: Data?
     

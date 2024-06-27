@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
-    @EnvironmentObject var favorites: Favorites
+    @EnvironmentObject var favorites: FavoritesStorageManager
     
     var body: some View {
         Group {

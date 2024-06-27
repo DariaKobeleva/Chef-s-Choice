@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View {    
     var body: some View {
-        
         TabView {
             RecipesView()
                 .tabItem {
@@ -28,8 +27,6 @@ struct ContentView: View {
                     Label("Profile", systemImage: "person")
                 }
         }
-        
-        
     }
 }
 

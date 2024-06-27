@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecipesView: View {
+    @EnvironmentObject var favorites: Favorites
+    
     var body: some View {
         NavigationStack {
             List {

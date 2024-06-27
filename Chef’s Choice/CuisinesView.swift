@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CuisinesView: View {
     @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var favorites: Favorites
     
     var body: some View {
         

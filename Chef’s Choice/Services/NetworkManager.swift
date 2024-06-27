@@ -38,14 +38,14 @@ final class NetworkManager: ObservableObject {
     }
     
     func fetchRecipeDetails(by id: String) async {
-            let urlString = "\(baseUrl)lookup.php?i=\(id)"
-            await fetchData(
-                urlString: urlString,
-                responseType: RecipeResponse.self
-            ) { response in
-                self.selectedRecipe = response.meals.first
-            }
+        let urlString = "\(baseUrl)lookup.php?i=\(id)"
+        await fetchData(
+            urlString: urlString,
+            responseType: RecipeResponse.self
+        ) { response in
+            self.selectedRecipe = response.meals.first
         }
+    }
     
     func fetchCategories() async {
         await fetchData(
@@ -103,6 +103,10 @@ final class NetworkManager: ObservableObject {
         ) { response in
             self.recipes = response.meals
         }
+    }
+    
+    func getRecipeById(_ id: String) -> Recipe? {
+        return recipes.first { $0.idMeal == id }
     }
     
     func extractYouTubeVideoID(from url: String) -> String? {

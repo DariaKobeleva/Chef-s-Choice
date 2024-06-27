@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IngredientsView: View {
     @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var favorites: Favorites
     
     var body: some View {
         List(networkManager.ingredients) { ingredient in

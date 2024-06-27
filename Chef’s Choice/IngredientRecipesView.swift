@@ -11,6 +11,7 @@ struct IngredientRecipesView: View {
     let ingredient: String
     
     @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var favorites: Favorites
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     

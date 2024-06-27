@@ -12,9 +12,12 @@ struct Chef_s_ChoiceApp: App {
     @StateObject private var welcomeViewVM = WelcomeViewViewModel(
         user: StorageManager.shared.fetchUser()
     )
+    
+    @StateObject var favorites = Favorites()
     var body: some Scene {
         WindowGroup {
             RootView()
+                .environmentObject(favorites)
         }
         .environmentObject(welcomeViewVM)
     }

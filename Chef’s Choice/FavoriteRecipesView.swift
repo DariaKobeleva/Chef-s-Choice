@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct FavoriteRecipesView: View {
+    @EnvironmentObject var favorites: Favorites
+    
     var body: some View {
-        List {
-            Text("1")
-            Text("2")
-            Text("3")
+        NavigationView {
+            List(Array(favorites.favoriteRecipes), id: \.self) { recipeId in
+                Text(recipeId)
+            }
+            .navigationBarTitle("Favorite Recipes")
         }
-        .navigationTitle("Favorite Recipes")
     }
 }
 
 #Preview {
     FavoriteRecipesView()
+        .environmentObject(Favorites())
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct RecipeDetailsView: View {
     @StateObject private var networkManager = NetworkManager()
     @State private var isFavorite: Bool = false
-    @Environment(Favorites.self) var favorites
+    @EnvironmentObject var favorites: Favorites
     
     let recipeId: String
     
@@ -99,5 +99,5 @@ struct RecipeDetailsView: View {
 
 #Preview {
     RecipeDetailsView(recipeId: "52794")
-        .environment(Favorites())
+        .environmentObject(Favorites())
 }

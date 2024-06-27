@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var favorites = Favorites()
+    
     var body: some View {
-        
         TabView {
             RecipesView()
                 .tabItem {
@@ -29,7 +30,7 @@ struct ContentView: View {
                 }
         }
         
-        
+        .environment(favorites)
     }
 }
 

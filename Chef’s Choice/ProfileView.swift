@@ -15,18 +15,20 @@ struct ProfileView: View {
     
     var body: some View {
         NavigationStack {
-            PhotosPicker(selection: $photosPickerItem, matching: .images) {
-                
-                //TODO: !systemName: "person")!)
-                
-                Image(uiImage: profileImage ?? UIImage(resource: .catChef))
+            VStack {
+                Image(uiImage: profileImage ?? UIImage(named: "catChef")!)
                     .resizable()
                     .frame(width: 200, height: 200)
                     .aspectRatio(contentMode: .fit)
                     .shadow(radius: 5)
                     .clipShape(Circle())
-            }
-            VStack {
+                
+                PhotosPicker(selection: $photosPickerItem, matching: .images) {
+                    Text("Change Profile Picture")
+                        .foregroundColor(.gray)
+                        .cornerRadius(10)
+                }
+                .padding()
                 List {
                     TextField("Enter your name", text: $welcomeViewVM.user.name)
                         .textFieldStyle(RoundedBorderTextFieldStyle())

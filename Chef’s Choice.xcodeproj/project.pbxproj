@@ -24,7 +24,7 @@
 		20A63F622C14C5490083F363 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A63F612C14C5490083F363 /* NetworkManager.swift */; };
 		20A937532C2B153500CFBA29 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937522C2B153500CFBA29 /* RecipesView.swift */; };
 		20A937552C2B204900CFBA29 /* FavoriteRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937542C2B204900CFBA29 /* FavoriteRecipesView.swift */; };
-		20A937572C2B208F00CFBA29 /* AddRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937562C2B208F00CFBA29 /* AddRecipesView.swift */; };
+		20A937572C2B208F00CFBA29 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937562C2B208F00CFBA29 /* AddRecipeView.swift */; };
 		20A937592C2B20A500CFBA29 /* MyRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937582C2B20A500CFBA29 /* MyRecipeView.swift */; };
 		20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */; };
 		20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */; };
@@ -39,6 +39,7 @@
 		20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CADA082C0E1F8D007FBAAF /* RootView.swift */; };
 		20CADA0B2C0E1FAF007FBAAF /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CADA0A2C0E1FAF007FBAAF /* CategoriesView.swift */; };
 		20CC54572C24615B00700512 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC54562C24615B00700512 /* RecipeDetailsView.swift */; };
+		20FBE9502C318CF0005334C3 /* MyRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FBE94F2C318CF0005334C3 /* MyRecipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +60,7 @@
 		20A63F612C14C5490083F363 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		20A937522C2B153500CFBA29 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		20A937542C2B204900CFBA29 /* FavoriteRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesView.swift; sourceTree = "<group>"; };
-		20A937562C2B208F00CFBA29 /* AddRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipesView.swift; sourceTree = "<group>"; };
+		20A937562C2B208F00CFBA29 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
 		20A937582C2B20A500CFBA29 /* MyRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeView.swift; sourceTree = "<group>"; };
 		20AACCF72C0DF35E00D97AB4 /* Chef’s Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chef’s Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef_s_ChoiceApp.swift; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		20CADA082C0E1F8D007FBAAF /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		20CADA0A2C0E1FAF007FBAAF /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		20CC54562C24615B00700512 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		20FBE94F2C318CF0005334C3 /* MyRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				209FB5362C18817C005DE6C5 /* Cuisine.swift */,
 				209FB5382C18818C005DE6C5 /* Ingredient.swift */,
 				2067F35F2C234E8D00B12FCA /* Recipe.swift */,
+				20FBE94F2C318CF0005334C3 /* MyRecipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -152,7 +155,7 @@
 				20A937542C2B204900CFBA29 /* FavoriteRecipesView.swift */,
 				20A937522C2B153500CFBA29 /* RecipesView.swift */,
 				20CC54562C24615B00700512 /* RecipeDetailsView.swift */,
-				20A937562C2B208F00CFBA29 /* AddRecipesView.swift */,
+				20A937562C2B208F00CFBA29 /* AddRecipeView.swift */,
 				20A937582C2B20A500CFBA29 /* MyRecipeView.swift */,
 				20C9F5522C29A74B00C048F5 /* ProfileView.swift */,
 				207B6BD22C0F7AE8002887BE /* Views */,
@@ -269,6 +272,7 @@
 				207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */,
 				20A63F622C14C5490083F363 /* NetworkManager.swift in Sources */,
 				2067F35C2C234CFE00B12FCA /* CuisinesRecipesView.swift in Sources */,
+				20FBE9502C318CF0005334C3 /* MyRecipe.swift in Sources */,
 				20868D112C17539500EEAF84 /* Category.swift in Sources */,
 				20AACD0D2C0E1AEB00D97AB4 /* WelcomeViewViewModel.swift in Sources */,
 				20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */,
@@ -285,7 +289,7 @@
 				209FB5372C18817C005DE6C5 /* Cuisine.swift in Sources */,
 				20C9F5532C29A74B00C048F5 /* ProfileView.swift in Sources */,
 				2078ABB12C2D89FF007417DD /* FavoritesStorageManager.swift in Sources */,
-				20A937572C2B208F00CFBA29 /* AddRecipesView.swift in Sources */,
+				20A937572C2B208F00CFBA29 /* AddRecipeView.swift in Sources */,
 				2067F3602C234E8D00B12FCA /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,6 +428,8 @@
 				DEVELOPMENT_TEAM = 4388DYHSZ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to allow users to take photos and videos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library to allow users to upload and share their photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -460,6 +466,8 @@
 				DEVELOPMENT_TEAM = 4388DYHSZ6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app requires access to the camera to allow users to take photos and videos.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app requires access to the photo library to allow users to upload and share their photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

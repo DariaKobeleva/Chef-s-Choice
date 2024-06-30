@@ -9,33 +9,31 @@ import SwiftUI
 
 struct MyRecipeView: View {
     @State private var isShowingAddRecipeView = false
+    @State private var myRecipes: [MyRecipe] = []
     
     var body: some View {
         NavigationStack {
-            List {
-                Text("1")
-                Text("2")
-                Text("4")
-                
+            List(myRecipes) { recipe in
+                VStack{
+                    Image(recipe.imageURL)
+                    Text(recipe.name)
+                }
             }
             .navigationTitle("My Recipe")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         isShowingAddRecipeView.toggle()
-                    }){
+                    }) {
                         Image(systemName: "plus")
                     }
                 }
             }
             .sheet(isPresented: $isShowingAddRecipeView) {
-                AddRecipesView()
+                AddRecipeView(myRecipes: $myRecipes, isShowingAddRecipeView: $isShowingAddRecipeView)
                     .presentationDetents([.large, .large])
-                
             }
-            
         }
-        
     }
 }
 

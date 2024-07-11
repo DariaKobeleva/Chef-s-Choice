@@ -14,8 +14,20 @@ struct MyRecipeView: View {
     var body: some View {
         NavigationStack {
             List(myRecipes) { recipe in
-                VStack{
-                    Image(recipe.imageURL)
+                HStack{
+                    if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 70, height: 70)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                    } else {
+                        Image("defaultImage")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 70, height: 70)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
+                    }
                     Text(recipe.name)
                 }
             }

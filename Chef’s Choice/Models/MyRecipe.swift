@@ -13,6 +13,6 @@ struct MyRecipe: Identifiable {
     let name: String
     let ingredients: [String]
     let instruction: String
-    let imageURL: String
+    let imageData: Data?
 }
 

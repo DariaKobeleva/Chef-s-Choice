@@ -11,41 +11,113 @@ struct AddRecipeView: View {
     @Binding var myRecipes: [MyRecipe]
     @Binding var isShowingAddRecipeView: Bool
     @State private var name = ""
-    @State private var ingredients = ""
+    @State private var ingredients: [String] = []
+    @State private var newIngredient = ""
     @State private var instruction = ""
+    @State private var mealImage: UIImage?
+    @State private var showingActionSheet = false
+    @State private var showingImagePicker = false
+    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var showingIngredientsSelection = false
     
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Meal Image")) {
+                    HStack {
+                        Spacer()
+                        Image(uiImage: mealImage ?? UIImage(named: "defaultImage")!)
+                            .resizable()
+                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .aspectRatio(contentMode: .fit)
+                            .scaledToFill()
+                            .frame(width: 200, height: 200)
+                            .shadow(radius: 5)
+                        Spacer()
+                    }
+                    
+                    Button(action: {
+                        showingActionSheet = true
+                    }) {
+                        Text("Choose a photo")
+                            .foregroundColor(.gray)
+                    }
+                    .padding()
+                    .actionSheet(isPresented: $showingActionSheet) {
+                        ActionSheet(
+                            title: Text("Select Photo"),
+                            message: nil,
+                            buttons: [
+                                .default(Text("Camera")) {
+                                    imagePickerSourceType = .camera
+                                    showingImagePicker = true
+                                },
+                                .default(Text("Photo Library")) {
+                                    imagePickerSourceType = .photoLibrary
+                                    showingImagePicker = true
+                                },
+                                .cancel()
+                            ]
+                        )
+                    }
+                }
+                
                 Section(header: Text("Recipe Name")) {
                     TextField("Enter recipe name", text: $name)
                 }
                 
                 Section(header: Text("Ingredients")) {
-                    TextField("Enter ingredients", text: $ingredients)
+                    VStack {
+                        Button(action: {
+                            showingIngredientsSelection = true
+                        }) {
+                            Image(systemName: "plus")
+                                .foregroundColor(.blue)
+                        }
+                        
+                        List {
+                            ForEach(ingredients, id: \.self) { ingredient in
+                                Text(ingredient)
+                                    .frame(alignment: .leading)
+                            }
+                            .onDelete(perform: removeIngredient)
+                        }
+                    }
                 }
                 
                 Section(header: Text("Instruction")) {
-                    TextField("Enter instruction", text: $instruction)
+                    TextEditor(text: $instruction)
+                        .frame(height: 200)
                 }
-                
             }
+            .navigationBarTitle("Add Recipe")
+            .navigationBarItems(leading: Button("Cancel") {
+                isShowingAddRecipeView = false
+            }, trailing: Button("Save") {
+                let newRecipe = MyRecipe(
+                    name: name,
+                    ingredients: ingredients,
+                    instruction: instruction,
+                    imageData: mealImage?.jpegData(compressionQuality: 1.0)
+                )
+                myRecipes.append(newRecipe)
+                isShowingAddRecipeView = false
+            })
         }
-        .navigationBarTitle("Add Recipe")
-        .navigationBarItems(leading: Button("Cancel") {
-            isShowingAddRecipeView = false
-        }, trailing: Button("Save") {
-            let newRecipe = MyRecipe(
-                name: name,
-                ingredients: ingredients.components(separatedBy: ","),
-                instruction: instruction, imageURL: ""
-            )
-            myRecipes.append(newRecipe)
-            isShowingAddRecipeView = false
-        })
-        
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker(isPresented: $showingImagePicker, image: $mealImage, sourceType: imagePickerSourceType)
+        }
+        .sheet(isPresented: $showingIngredientsSelection) {
+            IngredientsSelectionView(selectedIngredients: $ingredients)
+        }
+    }
+    
+    private func removeIngredient(at offsets: IndexSet) {
+        ingredients.remove(atOffsets: offsets)
     }
 }
+
 
 struct AddRecipeView_Previews: PreviewProvider {
     @State static var myRecipes: [MyRecipe] = []

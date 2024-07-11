@@ -13,6 +13,7 @@
 		2067F35E2C234D4B00B12FCA /* CategoriesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */; };
 		2067F3602C234E8D00B12FCA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35F2C234E8D00B12FCA /* Recipe.swift */; };
 		2069688D2C40168700ABAF61 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2069688C2C40168700ABAF61 /* ImagePicker.swift */; };
+		2069688F2C402FC000ABAF61 /* IngredientsSelectionView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2069688E2C402FC000ABAF61 /* IngredientsSelectionView .swift */; };
 		2078ABB12C2D89FF007417DD /* FavoritesStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078ABB02C2D89FF007417DD /* FavoritesStorageManager.swift */; };
 		207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B6BCF2C0F206A002887BE /* ButtonView.swift */; };
 		207E59E82C28A63E003B6682 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 207E59E72C28A63E003B6682 /* .gitignore */; };
@@ -50,6 +51,7 @@
 		2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRecipesView.swift; sourceTree = "<group>"; };
 		2067F35F2C234E8D00B12FCA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2069688C2C40168700ABAF61 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2069688E2C402FC000ABAF61 /* IngredientsSelectionView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IngredientsSelectionView .swift"; sourceTree = "<group>"; };
 		2078ABB02C2D89FF007417DD /* FavoritesStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStorageManager.swift; sourceTree = "<group>"; };
 		207B6BCF2C0F206A002887BE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		207E59E72C28A63E003B6682 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				2025BDE32C261B9D00A6BDAC /* YTView.swift */,
+				2069688E2C402FC000ABAF61 /* IngredientsSelectionView .swift */,
 				2069688C2C40168700ABAF61 /* ImagePicker.swift */,
 				20B4A8752C2B536C0035BD26 /* CustomKFImageView.swift */,
 				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
@@ -285,6 +288,7 @@
 				20A937592C2B20A500CFBA29 /* MyRecipeView.swift in Sources */,
 				209FB5312C187C0C005DE6C5 /* ContentView.swift in Sources */,
 				20AACD092C0DFB8E00D97AB4 /* User.swift in Sources */,
+				2069688F2C402FC000ABAF61 /* IngredientsSelectionView .swift in Sources */,
 				209FB5392C18818C005DE6C5 /* Ingredient.swift in Sources */,
 				20A937552C2B204900CFBA29 /* FavoriteRecipesView.swift in Sources */,
 				209FB5332C187D10005DE6C5 /* IngredientsView.swift in Sources */,

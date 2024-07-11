@@ -12,6 +12,7 @@
 		2067F35C2C234CFE00B12FCA /* CuisinesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */; };
 		2067F35E2C234D4B00B12FCA /* CategoriesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */; };
 		2067F3602C234E8D00B12FCA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35F2C234E8D00B12FCA /* Recipe.swift */; };
+		2069688D2C40168700ABAF61 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2069688C2C40168700ABAF61 /* ImagePicker.swift */; };
 		2078ABB12C2D89FF007417DD /* FavoritesStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078ABB02C2D89FF007417DD /* FavoritesStorageManager.swift */; };
 		207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B6BCF2C0F206A002887BE /* ButtonView.swift */; };
 		207E59E82C28A63E003B6682 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 207E59E72C28A63E003B6682 /* .gitignore */; };
@@ -48,6 +49,7 @@
 		2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinesRecipesView.swift; sourceTree = "<group>"; };
 		2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRecipesView.swift; sourceTree = "<group>"; };
 		2067F35F2C234E8D00B12FCA /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		2069688C2C40168700ABAF61 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2078ABB02C2D89FF007417DD /* FavoritesStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesStorageManager.swift; sourceTree = "<group>"; };
 		207B6BCF2C0F206A002887BE /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		207E59E72C28A63E003B6682 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				2025BDE32C261B9D00A6BDAC /* YTView.swift */,
+				2069688C2C40168700ABAF61 /* ImagePicker.swift */,
 				20B4A8752C2B536C0035BD26 /* CustomKFImageView.swift */,
 				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
 				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
@@ -266,6 +269,7 @@
 				2067F35A2C234CD100B12FCA /* IngredientRecipesView.swift in Sources */,
 				20CC54572C24615B00700512 /* RecipeDetailsView.swift in Sources */,
 				20B4A8762C2B536C0035BD26 /* CustomKFImageView.swift in Sources */,
+				2069688D2C40168700ABAF61 /* ImagePicker.swift in Sources */,
 				20CADA0B2C0E1FAF007FBAAF /* CategoriesView.swift in Sources */,
 				209FB5352C187F6F005DE6C5 /* CuisinesView.swift in Sources */,
 				20A937532C2B153500CFBA29 /* RecipesView.swift in Sources */,

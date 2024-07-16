@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2025BDE42C261B9D00A6BDAC /* YTView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2025BDE32C261B9D00A6BDAC /* YTView.swift */; };
+		2026D01B2C46C6DF0040867F /* MyRecipeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2026D01A2C46C6DF0040867F /* MyRecipeViewViewModel.swift */; };
 		2067F35A2C234CD100B12FCA /* IngredientRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */; };
 		2067F35C2C234CFE00B12FCA /* CuisinesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */; };
 		2067F35E2C234D4B00B12FCA /* CategoriesRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */; };
@@ -17,6 +18,7 @@
 		2078ABB12C2D89FF007417DD /* FavoritesStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078ABB02C2D89FF007417DD /* FavoritesStorageManager.swift */; };
 		207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B6BCF2C0F206A002887BE /* ButtonView.swift */; };
 		207E59E82C28A63E003B6682 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 207E59E72C28A63E003B6682 /* .gitignore */; };
+		207FA9862C459BB70057E7C7 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 207FA9852C459BB70057E7C7 /* RealmSwift */; };
 		20868D112C17539500EEAF84 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20868D102C17539500EEAF84 /* Category.swift */; };
 		209FB5312C187C0C005DE6C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FB5302C187C0C005DE6C5 /* ContentView.swift */; };
 		209FB5332C187D10005DE6C5 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FB5322C187D10005DE6C5 /* IngredientsView.swift */; };
@@ -46,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		2025BDE32C261B9D00A6BDAC /* YTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
+		2026D01A2C46C6DF0040867F /* MyRecipeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeViewViewModel.swift; sourceTree = "<group>"; };
 		2067F3592C234CD100B12FCA /* IngredientRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientRecipesView.swift; sourceTree = "<group>"; };
 		2067F35B2C234CFE00B12FCA /* CuisinesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisinesRecipesView.swift; sourceTree = "<group>"; };
 		2067F35D2C234D4B00B12FCA /* CategoriesRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRecipesView.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207FA9862C459BB70057E7C7 /* RealmSwift in Frameworks */,
 				20C9F5512C2990EC00C048F5 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +167,7 @@
 				20CC54562C24615B00700512 /* RecipeDetailsView.swift */,
 				20A937562C2B208F00CFBA29 /* AddRecipeView.swift */,
 				20A937582C2B20A500CFBA29 /* MyRecipeView.swift */,
+				2026D01A2C46C6DF0040867F /* MyRecipeViewViewModel.swift */,
 				20C9F5522C29A74B00C048F5 /* ProfileView.swift */,
 				207B6BD22C0F7AE8002887BE /* Views */,
 				20CADA072C0E1E41007FBAAF /* WelcomeView */,
@@ -209,6 +214,7 @@
 			name = "Chef’s Choice";
 			packageProductDependencies = (
 				20C9F5502C2990EC00C048F5 /* Kingfisher */,
+				207FA9852C459BB70057E7C7 /* RealmSwift */,
 			);
 			productName = "Chef’s Choice";
 			productReference = 20AACCF72C0DF35E00D97AB4 /* Chef’s Choice.app */;
@@ -240,6 +246,7 @@
 			mainGroup = 20AACCEE2C0DF35E00D97AB4;
 			packageReferences = (
 				20C9F54F2C2990EC00C048F5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				207FA9822C459BB70057E7C7 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 20AACCF82C0DF35E00D97AB4 /* Products */;
 			projectDirPath = "";
@@ -295,6 +302,7 @@
 				2067F35E2C234D4B00B12FCA /* CategoriesRecipesView.swift in Sources */,
 				20AACD0B2C0E191500D97AB4 /* UserStorageManager.swift in Sources */,
 				209FB5372C18817C005DE6C5 /* Cuisine.swift in Sources */,
+				2026D01B2C46C6DF0040867F /* MyRecipeViewViewModel.swift in Sources */,
 				20C9F5532C29A74B00C048F5 /* ProfileView.swift in Sources */,
 				2078ABB12C2D89FF007417DD /* FavoritesStorageManager.swift in Sources */,
 				20A937572C2B208F00CFBA29 /* AddRecipeView.swift in Sources */,
@@ -524,6 +532,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		207FA9822C459BB70057E7C7 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		20C9F54F2C2990EC00C048F5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -535,6 +551,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		207FA9852C459BB70057E7C7 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 207FA9822C459BB70057E7C7 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		20C9F5502C2990EC00C048F5 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 20C9F54F2C2990EC00C048F5 /* XCRemoteSwiftPackageReference "Kingfisher" */;

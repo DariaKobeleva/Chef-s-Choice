@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MyRecipeView: View {
+    @StateObject private var myRecipeVM = MyRecipeViewModel()
     @State private var isShowingAddRecipeView = false
-    @State private var myRecipes: [MyRecipe] = []
     
     var body: some View {
         NavigationStack {
-            List(myRecipes) { recipe in
+            List(myRecipeVM.recipes) { recipe in
                 HStack{
                     if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
                         Image(uiImage: uiImage)
@@ -31,6 +32,7 @@ struct MyRecipeView: View {
                     Text(recipe.name)
                 }
             }
+            
             .navigationTitle("My Recipe")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -42,10 +44,13 @@ struct MyRecipeView: View {
                 }
             }
             .sheet(isPresented: $isShowingAddRecipeView) {
-                AddRecipeView(myRecipes: $myRecipes, isShowingAddRecipeView: $isShowingAddRecipeView)
+                AddRecipeView(myRecipeVM: myRecipeVM, isShowingAddRecipeView: $isShowingAddRecipeView)
                     .presentationDetents([.large, .large])
             }
         }
+    }
+    private func deleteRecipes(at offsets: IndexSet) {
+        myRecipeVM.deleteRecipe(at: offsets)
     }
 }
 

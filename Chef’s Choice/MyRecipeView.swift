@@ -14,25 +14,27 @@ struct MyRecipeView: View {
     
     var body: some View {
         NavigationStack {
-            List(myRecipeVM.recipes) { recipe in
-                HStack{
-                    if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                    } else {
-                        Image("defaultImage")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
+            List {
+                ForEach(myRecipeVM.recipes) { recipe in
+                    HStack {
+                        if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                        } else {
+                            Image("defaultImage")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                        }
+                        Text(recipe.name)
                     }
-                    Text(recipe.name)
                 }
+                .onDelete(perform: myRecipeVM.deleteRecipe)
             }
-            
             .navigationTitle("My Recipe")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -42,15 +44,15 @@ struct MyRecipeView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
             }
             .sheet(isPresented: $isShowingAddRecipeView) {
                 AddRecipeView(myRecipeVM: myRecipeVM, isShowingAddRecipeView: $isShowingAddRecipeView)
                     .presentationDetents([.large, .large])
             }
         }
-    }
-    private func deleteRecipes(at offsets: IndexSet) {
-        myRecipeVM.deleteRecipe(at: offsets)
     }
 }
 

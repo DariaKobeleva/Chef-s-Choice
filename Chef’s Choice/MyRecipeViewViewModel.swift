@@ -10,11 +10,18 @@ import RealmSwift
 
 class MyRecipeViewModel: ObservableObject {
     private var realm: Realm
-    @Published var recipes: Results<MyRecipe>
+    @Published var recipes: [MyRecipe] = []
     
     init() {
         realm = try! Realm()
-        recipes = realm.objects(MyRecipe.self)
+        loadRecipes()
+    }
+    
+    func loadRecipes() {
+        DispatchQueue.main.async {
+            let results = self.realm.objects(MyRecipe.self)
+            self.recipes = Array(results)
+        }
     }
     
     func addRecipe(name: String, ingredients: [String], instruction: String, imageData: Data?) {
@@ -27,14 +34,22 @@ class MyRecipeViewModel: ObservableObject {
         try! realm.write {
             realm.add(newRecipe)
         }
+        loadRecipes()
     }
     
     func deleteRecipe(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let recipe = recipes[index]
-            try! realm.write {
-                realm.delete(recipe)
+        do {
+            try realm.write {
+                offsets.forEach { index in
+                    let recipe = recipes[index]
+                    realm.delete(recipe)
+                }
             }
+            
+            loadRecipes()
+            
+        } catch {
+            print("Failed to delete recipe: \(error.localizedDescription)")
         }
     }
 }

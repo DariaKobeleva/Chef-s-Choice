@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @Binding var myRecipes: [MyRecipe]
+    @ObservedObject var myRecipeVM: MyRecipeViewModel
+
     @Binding var isShowingAddRecipeView: Bool
     @State private var name = ""
     @State private var ingredients: [String] = []
@@ -92,38 +93,34 @@ struct AddRecipeView: View {
                 }
             }
             .navigationBarTitle("Add Recipe")
-            .navigationBarItems(leading: Button("Cancel") {
-                isShowingAddRecipeView = false
-            }, trailing: Button("Save") {
-                let newRecipe = MyRecipe(
-                    name: name,
-                    ingredients: ingredients,
-                    instruction: instruction,
-                    imageData: mealImage?.jpegData(compressionQuality: 1.0)
-                )
-                myRecipes.append(newRecipe)
-                isShowingAddRecipeView = false
-            })
-        }
-        .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(isPresented: $showingImagePicker, image: $mealImage, sourceType: imagePickerSourceType)
-        }
-        .sheet(isPresented: $showingIngredientsSelection) {
-            IngredientsSelectionView(selectedIngredients: $ingredients)
-        }
-    }
-    
-    private func removeIngredient(at offsets: IndexSet) {
-        ingredients.remove(atOffsets: offsets)
-    }
-}
+                      .navigationBarItems(leading: Button("Cancel") {
+                          isShowingAddRecipeView = false
+                      }, trailing: Button("Save") {
+                          let ingredientsArray = ingredients.map { $0.trimmingCharacters(in: .whitespaces) }
+                          let imageData = mealImage?.jpegData(compressionQuality: 1.0)
+                          myRecipeVM.addRecipe(name: name, ingredients: ingredientsArray, instruction: instruction, imageData: imageData)
+                          isShowingAddRecipeView = false
+                      })
+                  }
+                  .sheet(isPresented: $showingImagePicker) {
+                      ImagePicker(isPresented: $showingImagePicker, image: $mealImage, sourceType: imagePickerSourceType)
+                  }
+                  .sheet(isPresented: $showingIngredientsSelection) {
+                      IngredientsSelectionView(selectedIngredients: $ingredients)
+                  }
+              }
+              
+              private func removeIngredient(at offsets: IndexSet) {
+                  ingredients.remove(atOffsets: offsets)
+              }
+          }
 
 
 struct AddRecipeView_Previews: PreviewProvider {
-    @State static var myRecipes: [MyRecipe] = []
+    @StateObject static var myRecipe = MyRecipeViewModel()
     @State static var isShowingAddRecipeView = true
     
     static var previews: some View {
-        AddRecipeView(myRecipes: $myRecipes, isShowingAddRecipeView: $isShowingAddRecipeView)
+        AddRecipeView(myRecipeVM: myRecipe, isShowingAddRecipeView: $isShowingAddRecipeView)
     }
 }

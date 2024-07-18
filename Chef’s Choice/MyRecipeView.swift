@@ -6,30 +6,34 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MyRecipeView: View {
+    @StateObject private var myRecipeVM = MyRecipeViewModel()
     @State private var isShowingAddRecipeView = false
-    @State private var myRecipes: [MyRecipe] = []
     
     var body: some View {
         NavigationStack {
-            List(myRecipes) { recipe in
-                HStack{
-                    if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                    } else {
-                        Image("defaultImage")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 70, height: 70)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
+            List {
+                ForEach(myRecipeVM.recipes) { recipe in
+                    HStack {
+                        if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                        } else {
+                            Image("defaultImage")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 70, height: 70)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                        }
+                        Text(recipe.name)
                     }
-                    Text(recipe.name)
                 }
+                .onDelete(perform: myRecipeVM.deleteRecipe)
             }
             .navigationTitle("My Recipe")
             .toolbar {
@@ -40,9 +44,12 @@ struct MyRecipeView: View {
                         Image(systemName: "plus")
                     }
                 }
+                ToolbarItem(placement: .topBarLeading) {
+                    EditButton()
+                }
             }
             .sheet(isPresented: $isShowingAddRecipeView) {
-                AddRecipeView(myRecipes: $myRecipes, isShowingAddRecipeView: $isShowingAddRecipeView)
+                AddRecipeView(myRecipeVM: myRecipeVM, isShowingAddRecipeView: $isShowingAddRecipeView)
                     .presentationDetents([.large, .large])
             }
         }

@@ -31,7 +31,6 @@ final class FavoritesStorageManager: ObservableObject {
         save()
     }
     
-    //TODO: Realm realisation
     func save() {
         
     }

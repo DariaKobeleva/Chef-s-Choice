@@ -8,7 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-class MyRecipesViewModel: ObservableObject {
+final class MyRecipesListViewViewModel: ObservableObject {
     private var realm: Realm
     @Published var recipes: [MyRecipe] = []
     

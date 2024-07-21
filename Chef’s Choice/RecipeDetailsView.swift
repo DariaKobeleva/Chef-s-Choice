@@ -45,7 +45,6 @@ struct RecipeDetailsView: View {
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                     }
-                    
                     Divider()
                     
                     Text("Ingredients")
@@ -65,7 +64,6 @@ struct RecipeDetailsView: View {
                     if let instructions = recipe.strInstructions {
                         Text(instructions)
                     }
-                    
                 }
                 .padding()
                 .navigationTitle(recipe.strCategory ?? recipe.strMeal)

@@ -8,29 +8,32 @@
 import SwiftUI
 import RealmSwift
 
-struct MyRecipesView: View {
-    @StateObject private var myRecipeVM = MyRecipesViewModel()
+struct MyRecipesListView: View {
+    @StateObject private var myRecipeVM = MyRecipesListViewViewModel()
     @State private var isShowingAddRecipeView = false
+    @State private var selectedRecipe: MyRecipe?
     
     var body: some View {
         NavigationStack {
             List {
                 ForEach(myRecipeVM.recipes) { recipe in
-                    HStack {
-                        if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
-                            Image(uiImage: uiImage)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 70, height: 70)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                        } else {
-                            Image("defaultImage")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 70, height: 70)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                    NavigationLink(destination: MyRecipeDetailsView(recipe: recipe)) {
+                        HStack {
+                            if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 70, height: 70)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                            } else {
+                                Image("defaultImage")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 70, height: 70)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                            }
+                            Text(recipe.name)
                         }
-                        Text(recipe.name)
                     }
                 }
                 .onDelete(perform: myRecipeVM.deleteRecipe)
@@ -57,5 +60,5 @@ struct MyRecipesView: View {
 }
 
 #Preview {
-    MyRecipesView()
+    MyRecipesListView()
 }

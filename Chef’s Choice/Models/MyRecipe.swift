@@ -8,8 +8,7 @@
 import SwiftUI
 import RealmSwift
 
-
-class MyRecipe: Object, ObjectKeyIdentifiable {
+final class MyRecipe: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id: ObjectId
     @Persisted var name: String
     @Persisted var ingredients: RealmSwift.List<String>
@@ -17,14 +16,5 @@ class MyRecipe: Object, ObjectKeyIdentifiable {
     @Persisted var imageData: Data?
 }
 
-//
-//struct MyRecipe: Identifiable {
-//    var id = UUID()
-//    
-//    let name: String
-//    let ingredients: [String]
-//    let instruction: String
-//    let imageData: Data?
-//}
 
 

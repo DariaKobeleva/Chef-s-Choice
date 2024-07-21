@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @ObservedObject var myRecipeVM: MyRecipesViewModel
+    @ObservedObject var myRecipeVM: MyRecipesListViewViewModel
 
     @Binding var isShowingAddRecipeView: Bool
     @State private var name = ""
@@ -32,7 +32,6 @@ struct AddRecipeView: View {
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 30))
                             .aspectRatio(contentMode: .fit)
-                            .scaledToFill()
                             .frame(width: 200, height: 200)
                             .shadow(radius: 5)
                         Spacer()
@@ -73,7 +72,7 @@ struct AddRecipeView: View {
                         Button(action: {
                             showingIngredientsSelection = true
                         }) {
-                            Image(systemName: "plus")
+                            Image(systemName: "plus.circle.fill")
                                 .foregroundColor(.blue)
                         }
                         
@@ -81,7 +80,7 @@ struct AddRecipeView: View {
                             ForEach(ingredients, id: \.self) { ingredient in
                                 Text(ingredient)
                                     .frame(alignment: .leading)
-                            }
+                                           }
                             .onDelete(perform: removeIngredient)
                         }
                     }
@@ -92,32 +91,38 @@ struct AddRecipeView: View {
                         .frame(height: 200)
                 }
             }
-            .navigationBarTitle("Add Recipe")
-                      .navigationBarItems(leading: Button("Cancel") {
-                          isShowingAddRecipeView = false
-                      }, trailing: Button("Save") {
-                          let ingredientsArray = ingredients.map { $0.trimmingCharacters(in: .whitespaces) }
-                          let imageData = mealImage?.jpegData(compressionQuality: 1.0)
-                          myRecipeVM.addRecipe(name: name, ingredients: ingredientsArray, instruction: instruction, imageData: imageData)
-                          isShowingAddRecipeView = false
-                      })
-                  }
-                  .sheet(isPresented: $showingImagePicker) {
-                      ImagePicker(isPresented: $showingImagePicker, image: $mealImage, sourceType: imagePickerSourceType)
-                  }
-                  .sheet(isPresented: $showingIngredientsSelection) {
-                      IngredientsSelectionView(selectedIngredients: $ingredients)
-                  }
-              }
-              
-              private func removeIngredient(at offsets: IndexSet) {
-                  ingredients.remove(atOffsets: offsets)
-              }
-          }
-
+            .navigationBarTitle("Add Recipe", displayMode: .inline)
+            .navigationBarItems(leading: Button("Cancel") {
+                isShowingAddRecipeView = false
+            }, trailing: Button("Save") {
+                let ingredientsArray = ingredients.map { $0.trimmingCharacters(in: .whitespaces) }
+                let imageData = mealImage?.jpegData(compressionQuality: 1.0)
+                myRecipeVM.addRecipe(name: name, ingredients: ingredientsArray, instruction: instruction, imageData: imageData)
+                isShowingAddRecipeView = false
+            })
+        }
+        .sheet(isPresented: $showingImagePicker) {
+            ImagePicker(isPresented: $showingImagePicker, image: $mealImage, sourceType: imagePickerSourceType)
+        }
+        .sheet(isPresented: $showingIngredientsSelection) {
+            IngredientsSelectionView(selectedIngredients: $ingredients)
+        }
+    }
+    
+    private func addIngredient() {
+        let trimmedIngredient = newIngredient.trimmingCharacters(in: .whitespaces)
+        guard !trimmedIngredient.isEmpty else { return }
+        ingredients.append(trimmedIngredient)
+        newIngredient = ""
+    }
+    
+    private func removeIngredient(at offsets: IndexSet) {
+        ingredients.remove(atOffsets: offsets)
+    }
+}
 
 struct AddRecipeView_Previews: PreviewProvider {
-    @StateObject static var myRecipe = MyRecipesViewModel()
+    @StateObject static var myRecipe = MyRecipesListViewViewModel()
     @State static var isShowingAddRecipeView = true
     
     static var previews: some View {

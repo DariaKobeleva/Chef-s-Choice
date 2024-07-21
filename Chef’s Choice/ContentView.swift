@@ -18,7 +18,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Favorite", systemImage: "star")
                 }
-            MyRecipeView()
+            MyRecipesView()
                 .tabItem {
                     Label("My Recipes", systemImage: "heart.text.square.fill")
                 }

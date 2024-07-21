@@ -15,6 +15,7 @@
 		2067F3602C234E8D00B12FCA /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2067F35F2C234E8D00B12FCA /* Recipe.swift */; };
 		2069688D2C40168700ABAF61 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2069688C2C40168700ABAF61 /* ImagePicker.swift */; };
 		2069688F2C402FC000ABAF61 /* IngredientsSelectionView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2069688E2C402FC000ABAF61 /* IngredientsSelectionView .swift */; };
+		2072D2B12C4BE626005ECA34 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 207FA9852C459BB70057E7C7 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2078ABB12C2D89FF007417DD /* FavoritesStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2078ABB02C2D89FF007417DD /* FavoritesStorageManager.swift */; };
 		207B6BD02C0F206A002887BE /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207B6BCF2C0F206A002887BE /* ButtonView.swift */; };
 		207E59E82C28A63E003B6682 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 207E59E72C28A63E003B6682 /* .gitignore */; };
@@ -29,7 +30,7 @@
 		20A937532C2B153500CFBA29 /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937522C2B153500CFBA29 /* RecipesView.swift */; };
 		20A937552C2B204900CFBA29 /* FavoriteRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937542C2B204900CFBA29 /* FavoriteRecipesView.swift */; };
 		20A937572C2B208F00CFBA29 /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937562C2B208F00CFBA29 /* AddRecipeView.swift */; };
-		20A937592C2B20A500CFBA29 /* MyRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937582C2B20A500CFBA29 /* MyRecipeView.swift */; };
+		20A937592C2B20A500CFBA29 /* MyRecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A937582C2B20A500CFBA29 /* MyRecipesView.swift */; };
 		20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */; };
 		20AACCFD2C0DF35E00D97AB4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */; };
 		20AACCFF2C0DF36000D97AB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20AACCFE2C0DF36000D97AB4 /* Assets.xcassets */; };
@@ -45,6 +46,20 @@
 		20CC54572C24615B00700512 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CC54562C24615B00700512 /* RecipeDetailsView.swift */; };
 		20FBE9502C318CF0005334C3 /* MyRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FBE94F2C318CF0005334C3 /* MyRecipe.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2072D2B22C4BE626005ECA34 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2072D2B12C4BE626005ECA34 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2025BDE32C261B9D00A6BDAC /* YTView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTView.swift; sourceTree = "<group>"; };
@@ -68,7 +83,7 @@
 		20A937522C2B153500CFBA29 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		20A937542C2B204900CFBA29 /* FavoriteRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipesView.swift; sourceTree = "<group>"; };
 		20A937562C2B208F00CFBA29 /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
-		20A937582C2B20A500CFBA29 /* MyRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipeView.swift; sourceTree = "<group>"; };
+		20A937582C2B20A500CFBA29 /* MyRecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesView.swift; sourceTree = "<group>"; };
 		20AACCF72C0DF35E00D97AB4 /* Chef’s Choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chef’s Choice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20AACCFA2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chef_s_ChoiceApp.swift; sourceTree = "<group>"; };
 		20AACCFC2C0DF35E00D97AB4 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -166,7 +181,7 @@
 				20A937522C2B153500CFBA29 /* RecipesView.swift */,
 				20CC54562C24615B00700512 /* RecipeDetailsView.swift */,
 				20A937562C2B208F00CFBA29 /* AddRecipeView.swift */,
-				20A937582C2B20A500CFBA29 /* MyRecipeView.swift */,
+				20A937582C2B20A500CFBA29 /* MyRecipesView.swift */,
 				2026D01A2C46C6DF0040867F /* MyRecipeViewViewModel.swift */,
 				20C9F5522C29A74B00C048F5 /* ProfileView.swift */,
 				207B6BD22C0F7AE8002887BE /* Views */,
@@ -206,6 +221,7 @@
 				20AACCF32C0DF35E00D97AB4 /* Sources */,
 				20AACCF42C0DF35E00D97AB4 /* Frameworks */,
 				20AACCF52C0DF35E00D97AB4 /* Resources */,
+				2072D2B22C4BE626005ECA34 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,7 +308,7 @@
 				20CADA092C0E1F8D007FBAAF /* RootView.swift in Sources */,
 				20AACCFB2C0DF35E00D97AB4 /* Chef_s_ChoiceApp.swift in Sources */,
 				2025BDE42C261B9D00A6BDAC /* YTView.swift in Sources */,
-				20A937592C2B20A500CFBA29 /* MyRecipeView.swift in Sources */,
+				20A937592C2B20A500CFBA29 /* MyRecipesView.swift in Sources */,
 				209FB5312C187C0C005DE6C5 /* ContentView.swift in Sources */,
 				20AACD092C0DFB8E00D97AB4 /* User.swift in Sources */,
 				2069688F2C402FC000ABAF61 /* IngredientsSelectionView .swift in Sources */,

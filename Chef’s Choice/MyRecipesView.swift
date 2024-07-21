@@ -8,8 +8,8 @@
 import SwiftUI
 import RealmSwift
 
-struct MyRecipeView: View {
-    @StateObject private var myRecipeVM = MyRecipeViewModel()
+struct MyRecipesView: View {
+    @StateObject private var myRecipeVM = MyRecipesViewModel()
     @State private var isShowingAddRecipeView = false
     
     var body: some View {
@@ -57,5 +57,5 @@ struct MyRecipeView: View {
 }
 
 #Preview {
-    MyRecipeView()
+    MyRecipesView()
 }

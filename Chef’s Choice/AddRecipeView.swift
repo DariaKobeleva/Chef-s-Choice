@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @ObservedObject var myRecipeVM: MyRecipeViewModel
+    @ObservedObject var myRecipeVM: MyRecipesViewModel
 
     @Binding var isShowingAddRecipeView: Bool
     @State private var name = ""
@@ -117,7 +117,7 @@ struct AddRecipeView: View {
 
 
 struct AddRecipeView_Previews: PreviewProvider {
-    @StateObject static var myRecipe = MyRecipeViewModel()
+    @StateObject static var myRecipe = MyRecipesViewModel()
     @State static var isShowingAddRecipeView = true
     
     static var previews: some View {

@@ -11,7 +11,6 @@ import RealmSwift
 struct MyRecipesListView: View {
     @StateObject private var myRecipeVM = MyRecipesListViewViewModel()
     @State private var isShowingAddRecipeView = false
-    @State private var selectedRecipe: MyRecipe?
     
     var body: some View {
         NavigationStack {
@@ -38,7 +37,7 @@ struct MyRecipesListView: View {
                 }
                 .onDelete(perform: myRecipeVM.deleteRecipe)
             }
-            .navigationTitle("My Recipe")
+            .navigationTitle("My Recipes")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
@@ -58,6 +57,7 @@ struct MyRecipesListView: View {
         }
     }
 }
+
 
 #Preview {
     MyRecipesListView()

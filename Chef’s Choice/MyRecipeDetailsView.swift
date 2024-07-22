@@ -29,7 +29,7 @@ struct MyRecipeDetailsView: View {
                     .font(.largeTitle)
                     .padding(.top, 10)
                 
-                Text("Ингредиенты")
+                Text("Ingredients")
                     .font(.headline)
                     .padding(.top, 10)
                 
@@ -38,7 +38,7 @@ struct MyRecipeDetailsView: View {
                 }
                 .padding(.leading, 10)
                 
-                Text("Инструкции")
+                Text("Instruction")
                     .font(.headline)
                     .padding(.top, 10)
                 
@@ -54,8 +54,8 @@ struct MyRecipeDetailsView: View {
 
 #Preview {
     let recipe = MyRecipe()
-    recipe.name = "Name"
-    recipe.ingredients.append(objectsIn: ["Ингредиент 1", "Ингредиент 2", "Ингредиент 3"])
-    recipe.instruction = "Это пример инструкции по приготовлению."
+    recipe.name = "Name of the dish"
+    recipe.ingredients.append(objectsIn: ["Ingredient 1", "Ingredient 2", "Ingredients3"])
+    recipe.instruction = "This is an example of cooking instructions."
     return MyRecipeDetailsView(recipe: recipe)
 }

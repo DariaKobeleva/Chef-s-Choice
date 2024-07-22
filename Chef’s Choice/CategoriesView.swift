@@ -19,7 +19,7 @@ struct CategoriesView: View {
                     NavigationLink(destination: CategoriesRecipesView(categories: category.strCategory)) {
                         VStack {
                             if let imageURL = URL(string: category.strCategoryThumb) {
-                              CustomKFImageView(imageURL: imageURL)
+                                CustomKFImageView(imageURL: imageURL)
                             } else {
                                 Image("defaultImage")
                             }

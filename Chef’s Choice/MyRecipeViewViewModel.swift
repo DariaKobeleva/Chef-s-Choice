@@ -10,17 +10,36 @@ import RealmSwift
 
 final class MyRecipesListViewViewModel: ObservableObject {
     private var realm: Realm
+    private var notificationToken: NotificationToken?
+    
     @Published var recipes: [MyRecipe] = []
     
     init() {
         realm = try! Realm()
         loadRecipes()
+        observeRecipes()
+    }
+    
+    deinit {
+        notificationToken?.invalidate()
     }
     
     func loadRecipes() {
-        DispatchQueue.main.async {
-            let results = self.realm.objects(MyRecipe.self)
-            self.recipes = Array(results)
+        let results = realm.objects(MyRecipe.self)
+        self.recipes = Array(results)
+    }
+    
+    func observeRecipes() {
+        let results = realm.objects(MyRecipe.self)
+        notificationToken = results.observe { [weak self] changes in
+            switch changes {
+            case .initial(let results):
+                self?.recipes = Array(results)
+            case .update(let results, _, _, _):
+                self?.recipes = Array(results)
+            case .error(let error):
+                print("Error observing recipes: \(error.localizedDescription)")
+            }
         }
     }
     
@@ -34,7 +53,6 @@ final class MyRecipesListViewViewModel: ObservableObject {
         try! realm.write {
             realm.add(newRecipe)
         }
-        loadRecipes()
     }
     
     func deleteRecipe(at offsets: IndexSet) {
@@ -42,15 +60,13 @@ final class MyRecipesListViewViewModel: ObservableObject {
             try realm.write {
                 offsets.forEach { index in
                     let recipe = recipes[index]
-                    realm.delete(recipe)
+                    if let objectToDelete = realm.object(ofType: MyRecipe.self, forPrimaryKey: recipe.id) {
+                        realm.delete(objectToDelete)
+                    }
                 }
             }
-            
-            loadRecipes()
-            
         } catch {
             print("Failed to delete recipe: \(error.localizedDescription)")
         }
     }
 }
-

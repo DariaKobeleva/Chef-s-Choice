@@ -9,9 +9,18 @@ import SwiftUI
 
 struct IngredientsView: View {
     @StateObject private var networkManager = NetworkManager()
+    @State private var searchText = ""
+    
+    var filteredIngredients: [Ingredient] {
+        if searchText.isEmpty {
+            return networkManager.ingredients
+        } else {
+            return networkManager.ingredients.filter { $0.strIngredient.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
     
     var body: some View {
-        List(networkManager.ingredients) { ingredient in
+        List(filteredIngredients) { ingredient in
             NavigationLink(destination: IngredientRecipesView(ingredient: ingredient.strIngredient)) {
                 HStack {
                     if let imageURL = ingredient.imageURL {
@@ -33,6 +42,8 @@ struct IngredientsView: View {
         .task {
             await networkManager.fetchIngredient()
         }
+        .searchable(text: $searchText)
+        
     }
 }
 

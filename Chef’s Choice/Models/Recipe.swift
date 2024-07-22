@@ -5,8 +5,6 @@
 //  Created by Дарья Кобелева on 19.06.2024.
 //
 
-import Foundation
-
 struct Recipe: Codable, Hashable {
     let idMeal: String
     let strMeal: String

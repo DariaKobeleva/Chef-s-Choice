@@ -15,6 +15,3 @@ final class MyRecipe: Object, ObjectKeyIdentifiable {
     @Persisted var instruction: String
     @Persisted var imageData: Data?
 }
-
-
-

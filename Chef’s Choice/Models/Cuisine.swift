@@ -5,8 +5,6 @@
 //  Created by Дарья Кобелева on 11.06.2024.
 //
 
-import Foundation
-
 struct Cuisine: Codable, Identifiable, Hashable {
     let strArea: String
     

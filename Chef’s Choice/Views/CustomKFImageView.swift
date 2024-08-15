@@ -21,7 +21,7 @@ struct CustomKFImageView: View {
                 print("Error: \(error)")
             }
             .placeholder {
-                Image("defaultImage")
+                Image("cookbook")
                     .resizable()
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 30))

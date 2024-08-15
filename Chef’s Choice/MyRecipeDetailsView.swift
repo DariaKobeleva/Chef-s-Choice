@@ -19,7 +19,7 @@ struct MyRecipeDetailsView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: 300)
                 } else {
-                    Image("defaultImage")
+                    Image("cookbook")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: 300)

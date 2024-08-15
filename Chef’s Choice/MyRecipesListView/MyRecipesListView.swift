@@ -25,7 +25,7 @@ struct MyRecipesListView: View {
                                     .frame(width: 70, height: 70)
                                     .clipShape(RoundedRectangle(cornerRadius: 15))
                             } else {
-                                Image("defaultImage")
+                                Image("cookbook")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 70, height: 70)

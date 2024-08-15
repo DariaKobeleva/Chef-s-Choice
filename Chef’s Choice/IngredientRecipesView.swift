@@ -24,7 +24,7 @@ struct IngredientRecipesView: View {
                                 CustomKFImageView(imageURL: imageURL)
                             }
                             else {
-                                Image("defaultImage")
+                                Image("cookbook")
                                     .resizable()
                                     .clipped()
                                     .clipShape(RoundedRectangle(cornerRadius: 30))

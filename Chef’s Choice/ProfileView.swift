@@ -58,21 +58,9 @@ struct ProfileView: View {
                 }
                 .cornerRadius(10)
                 .padding(.horizontal)
+                .frame(maxWidth: 400, maxHeight: 300)
             }
             .navigationTitle("Chef \(welcomeViewVM.user.name)")
-            .background(
-                LinearGradient(
-                    gradient: Gradient(
-                        colors: [
-                            Color(red: 0.85, green: 0.92, blue: 1.0),  
-                            Color(red: 1.0, green: 0.85, blue: 0.9)
-                        ]
-                    ),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ).ignoresSafeArea()
-            )
-            
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: welcomeViewVM.logout) {

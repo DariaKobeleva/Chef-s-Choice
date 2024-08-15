@@ -22,7 +22,7 @@ struct RecipeDetailsView: View {
                        let imageURL = URL(string: recipe.strMealThumb) {
                         YTView(videoURL: youtubeURL, imageURL: imageURL)
                     } else {
-                        Image("defaultImage")
+                        Image("cookbook")
                             .resizable()
                             .clipped()
                             .cornerRadius(30)

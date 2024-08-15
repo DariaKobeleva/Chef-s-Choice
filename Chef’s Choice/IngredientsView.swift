@@ -27,7 +27,7 @@ struct IngredientsView: View {
                         CustomKFImageView(imageURL: imageURL)
                             .frame(width: 70, height: 70)
                     } else {
-                        Image("defaultImage")
+                        Image("cookbook")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 70, height: 70)

@@ -115,6 +115,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		200C93852C6E2AD100318F73 /* MyRecipesListView */ = {
+			isa = PBXGroup;
+			children = (
+				2026D01A2C46C6DF0040867F /* MyRecipeViewViewModel.swift */,
+				20A937582C2B20A500CFBA29 /* MyRecipesListView.swift */,
+			);
+			path = MyRecipesListView;
+			sourceTree = "<group>";
+		};
 		207B6BCE2C0EFD25002887BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,14 +193,12 @@
 				20CC54562C24615B00700512 /* RecipeDetailsView.swift */,
 				2072D2B32C4D2400005ECA34 /* MyRecipeDetailsView.swift */,
 				20A937562C2B208F00CFBA29 /* AddRecipeView.swift */,
-				2026D01A2C46C6DF0040867F /* MyRecipeViewViewModel.swift */,
-				20A937582C2B20A500CFBA29 /* MyRecipesListView.swift */,
+				200C93852C6E2AD100318F73 /* MyRecipesListView */,
 				20C9F5522C29A74B00C048F5 /* ProfileView.swift */,
 				20CADA072C0E1E41007FBAAF /* WelcomeView */,
 				207B6BD22C0F7AE8002887BE /* Views */,
 				207B6BD12C0F2FC9002887BE /* Services */,
 				207B6BCE2C0EFD25002887BE /* Models */,
-				20AACCFE2C0DF36000D97AB4 /* Assets.xcassets */,
 				20AACD002C0DF36000D97AB4 /* Preview Content */,
 			);
 			path = "Chef’s Choice";
@@ -201,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				20AACD012C0DF36000D97AB4 /* Preview Assets.xcassets */,
+				20AACCFE2C0DF36000D97AB4 /* Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";

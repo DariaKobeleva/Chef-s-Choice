@@ -5,7 +5,6 @@
 //  Created by Дарья Кобелева on 27.06.2024.
 //
 
-import Foundation
 import SwiftUI
 
 final class FavoritesStorageManager: ObservableObject {

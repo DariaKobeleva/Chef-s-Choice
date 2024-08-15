@@ -40,7 +40,7 @@ struct IngredientsView: View {
         .listStyle(.plain)
         .navigationTitle("Ingredients")
         .task {
-            await networkManager.fetchIngredient()
+            await networkManager.fetchIngredients()
         }
         .searchable(text: $searchText)
         

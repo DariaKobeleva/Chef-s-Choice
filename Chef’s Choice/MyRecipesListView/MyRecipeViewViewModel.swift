@@ -22,6 +22,7 @@ final class MyRecipesListViewViewModel: ObservableObject {
     
     deinit {
         notificationToken?.invalidate()
+        print("MyRecipesListViewViewModel deinit")
     }
     
     func loadRecipes() {

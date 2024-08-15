@@ -65,7 +65,7 @@ final class NetworkManager: ObservableObject {
         }
     }
     
-    func fetchIngredient() async {
+    func fetchIngredients() async {
         await fetchData(
             urlString: "\(baseUrl)list.php?i=list",
             responseType: IngredientResponse.self

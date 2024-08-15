@@ -16,7 +16,6 @@ struct RecipesView: View {
                         Image("recipe-book")
                             .resizable()
                             .frame(width: 100, height: 100)
-                            .shadow(radius: 15)
                         
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Categories")
@@ -35,18 +34,17 @@ struct RecipesView: View {
                         Image("ingridients")
                             .resizable()
                             .frame(width: 100, height: 100)
-                            .shadow(radius: 15)
+
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Ingredients")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text("Explore different categories of recipes.")
+                            Text("Discover recipes based on the ingredients you have on hand.")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }
                     }
                     .padding(.vertical, 10)
-                    
                 }
                 
                 NavigationLink(destination: CuisinesView()) {
@@ -54,12 +52,12 @@ struct RecipesView: View {
                         Image("globe")
                             .resizable()
                             .frame(width: 100, height: 100)
-                            .shadow(radius: 15)
+                        
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Cuisines")
                                 .font(.title2)
                                 .fontWeight(.bold)
-                            Text("Explore different categories of recipes.")
+                            Text("Explore global cuisines and bring international flavors to your kitchen.")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }

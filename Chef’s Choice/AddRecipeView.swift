@@ -27,7 +27,7 @@ struct AddRecipeView: View {
                 Section(header: Text("Meal Image")) {
                     HStack {
                         Spacer()
-                        Image(uiImage: mealImage ?? UIImage(named: "defaultImage")!)
+                        Image(uiImage: mealImage ?? UIImage(named: "cookbook")!)
                             .resizable()
                             .clipped()
                             .clipShape(RoundedRectangle(cornerRadius: 30))

@@ -54,19 +54,24 @@ struct ProfileView: View {
                     Section(header: Text("User Information").font(.headline)) {
                         TextField("Enter your name", text: $welcomeViewVM.user.name)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .padding(.vertical, 5)
                     }
                 }
-                .background(Color.white)
                 .cornerRadius(10)
                 .padding(.horizontal)
             }
             .navigationTitle("Chef \(welcomeViewVM.user.name)")
-            .background(LinearGradient(
-                gradient: Gradient(colors: [Color(red: 1.0, green: 0.83, blue: 0.65), Color(red: 0.99, green: 0.4, blue: 0.52)]),
-                startPoint: .top,
-                endPoint: .bottom
-            ).ignoresSafeArea())
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [
+                            Color(red: 1.0, green: 0.89, blue: 0.80),
+                            Color(red: 1.0, green: 0.74, blue: 0.71)
+                        ]
+                    ),
+                    startPoint: .top,
+                    endPoint: .bottom
+                ).ignoresSafeArea()
+            )
             
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

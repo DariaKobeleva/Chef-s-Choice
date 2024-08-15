@@ -29,7 +29,22 @@ struct RecipeRowView<Destination: View>: View {
                         .foregroundColor(.secondary)
                 }
             }
-            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 20)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [
+                            Color(red: 0.85, green: 0.92, blue: 1.0),
+                            Color(red: 1.0, green: 0.85, blue: 0.9)
+                        ]
+                    ),
+                    startPoint: .top,
+                    endPoint: .bottom
+                ).ignoresSafeArea()
+            )
+            .cornerRadius(20) 
+            .shadow(radius: 5)
         }
     }
 }

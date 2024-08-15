@@ -152,11 +152,11 @@
 		207B6BD22C0F7AE8002887BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				205337AA2C6E73F4004DCE8B /* RecipeRowView.swift */,
 				2025BDE32C261B9D00A6BDAC /* YTView.swift */,
 				2069688E2C402FC000ABAF61 /* IngredientsSelectionView .swift */,
 				2069688C2C40168700ABAF61 /* ImagePicker.swift */,
 				20B4A8752C2B536C0035BD26 /* CustomKFImageView.swift */,
-				205337AA2C6E73F4004DCE8B /* RecipeRowView.swift */,
 				20CADA082C0E1F8D007FBAAF /* RootView.swift */,
 				207B6BCF2C0F206A002887BE /* ButtonView.swift */,
 			);

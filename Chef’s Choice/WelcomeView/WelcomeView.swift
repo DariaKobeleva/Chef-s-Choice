@@ -15,7 +15,12 @@ struct WelcomeView: View {
     var body: some View {
         ZStack {
             LinearGradient(
-                gradient: Gradient(colors: [Color(red: 1.0, green: 0.83, blue: 0.65), Color(red: 0.99, green: 0.4, blue: 0.52)]),
+                gradient: Gradient(
+                    colors: [
+                        Color(red: 0.7, green: 0.85, blue: 1.0),
+                        Color(red: 1.0, green: 0.7, blue: 0.8)
+                    ]
+                ),
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -25,7 +30,7 @@ struct WelcomeView: View {
                 VStack(spacing: 20) {
                     Image("cookbook")
                         .resizable()
-                        .frame(width: 150, height: 150)
+                        .frame(width: 180, height: 180)
                         .shadow(radius: 10)
                     
                     Text("Hi there!")
@@ -37,7 +42,7 @@ struct WelcomeView: View {
                 VStack(alignment: .center, spacing: 10) {
                     Text("What's your name?")
                         .font(.title2)
-                        .foregroundColor(.white.opacity(0.8))
+                        .foregroundColor(.white.opacity(0.9))
                     
                     TextField("Please enter your name", text: $welcomeViewVM.user.name)
                         .padding()
@@ -46,12 +51,12 @@ struct WelcomeView: View {
                         .multilineTextAlignment(.center)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
-                                .stroke(welcomeViewVM.user.name.isEmpty ? .gray : .white.opacity(0.8), lineWidth: 2)
+                                .stroke(.white.opacity(0.4), lineWidth: 2)
                         )
-                        .shadow(radius: 5)
-                        .frame(minHeight: 50)
+                        .shadow(radius: 10)
+                        .frame(maxWidth: 300, minHeight: 50)
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 40)
                 
                 Button(action: welcomeViewVM.login) {
                     Text("Continue")

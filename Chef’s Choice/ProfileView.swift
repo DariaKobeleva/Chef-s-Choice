@@ -64,8 +64,8 @@ struct ProfileView: View {
                 LinearGradient(
                     gradient: Gradient(
                         colors: [
-                            Color(red: 1.0, green: 0.89, blue: 0.80),
-                            Color(red: 1.0, green: 0.74, blue: 0.71)
+                            Color(red: 0.85, green: 0.92, blue: 1.0),  
+                            Color(red: 1.0, green: 0.85, blue: 0.9)
                         ]
                     ),
                     startPoint: .top,

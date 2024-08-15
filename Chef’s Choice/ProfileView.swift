@@ -18,14 +18,12 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image(uiImage: profileImage ?? UIImage(named: "catChef")!)
+                Image(uiImage: profileImage ?? UIImage(named: "chef")!)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 150, height: 150)
                     .clipShape(Circle())
                     .shadow(radius: 5)
-                    .overlay(Circle().stroke(Color.white, lineWidth: 4))
-                
                 Button(action: {
                     showingActionSheet = true
                 }) {

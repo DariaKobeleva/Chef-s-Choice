@@ -8,18 +8,63 @@
 import SwiftUI
 
 struct RecipesView: View {
-    
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink(destination: CategoriesView()) {
-                    Text("Categories")
+                    HStack(spacing: 20) {
+                        Image("recipe-book")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .shadow(radius: 15)
+                        
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Categories")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Text("Explore different categories of recipes.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding(.vertical, 10)
                 }
+                
                 NavigationLink(destination: IngredientsView()) {
-                    Text("Ingredients")
+                    HStack(spacing: 20) {
+                        Image("ingridients")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .shadow(radius: 15)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Ingredients")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Text("Explore different categories of recipes.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .padding(.vertical, 10)
+                    
                 }
+                
                 NavigationLink(destination: CuisinesView()) {
-                    Text("Cuisines")
+                    HStack(spacing: 20) {
+                        Image("globe")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .shadow(radius: 15)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Cuisines")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                            Text("Explore different categories of recipes.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.vertical, 10)
+                    }
                 }
                 .navigationTitle("Recipes")
             }

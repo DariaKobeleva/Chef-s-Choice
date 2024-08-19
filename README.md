@@ -1,10 +1,10 @@
-**Chef’s Choice**
+## Chef’s Choice 
 
 Chef’s Choice is not just a mobile app—it's a true guide for all culinary enthusiasts. 
 It allows you to discover new recipes organized by categories, ingredients, and world cuisines, helping you expand your gastronomic preferences.
 The user-friendly interface lets you quickly return to your favorite recipes and add your own, making the cooking process a real pleasure with a wide variety of dishes to suit any taste and moo
 
-## Features
+### Features
 
 - **Recipe Categories**: Easy access to a variety of recipe categories such as meat dishes, desserts, pasta, and more.
 - **Ingredient Sorting**: Ability to sort recipes by key ingredients, allowing you to quickly find dishes based on what you have on hand.

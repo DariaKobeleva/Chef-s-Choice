@@ -22,5 +22,19 @@ Users enter their name, which is saved in UserDefaults. Upon the next app launch
 <img src="https://github.com/user-attachments/assets/3c623d4a-c05d-4b59-abe9-cd675c2c0b2e" width="200" height="380"/>
 <img src="https://github.com/user-attachments/assets/da96f456-4657-4f03-a0a9-b46dcab9b55b" width="200" height="380"/>
 
+### 2. Recipes Navigation
+On this screen, users can easily find recipes organized into various categories:
+<img src="https://github.com/user-attachments/assets/13532de1-5787-421c-83cf-befb36bb1344" width="200" height="380"/>
 
+#### 2.1 **Categories**
+Browse recipes by categories such as meat dishes, desserts, pasta, and more.
+<img src="https://github.com/user-attachments/assets/e08515bf-8432-4ffc-88d6-8dc928ff4e44" width="200" height="380"/>
+
+#### 2.2 **Ingredients**
+Search for recipes based on the ingredients you have on hand.
+<img src="https://github.com/user-attachments/assets/0dd48012-9e11-469a-b1bf-0097a8b33749" width="200" height="380"/>
+
+#### 2.3 **Cuisines**
+Explore recipes from around the world to bring international flavors into your kitchen.
+<img src="https://github.com/user-attachments/assets/a09ab562-a693-48e5-8c8a-d1515fbf205d" width="200" height="380"/>
 

@@ -19,9 +19,8 @@ The user-friendly interface lets you quickly return to your favorite recipes and
 
 Users enter their name, which is saved in UserDefaults. Upon the next app launch, they won't need to enter their name again.
 
-<img src="https://github.com/user-attachments/assets/3c623d4a-c05d-4b59-abe9-cd675c2c0b2e" width="200"/>
-<img src="https://github.com/user-attachments/assets/bf198c32-a38c-4a4f-90d0-4c4d820d009d" width="200"/>
-<img src="https://github.com/user-attachments/assets/da96f456-4657-4f03-a0a9-b46dcab9b55b" width="200"/>
+<img src="https://github.com/user-attachments/assets/3c623d4a-c05d-4b59-abe9-cd675c2c0b2e" width="200" height="380"/>
+<img src="https://github.com/user-attachments/assets/da96f456-4657-4f03-a0a9-b46dcab9b55b" width="200" height="380"/>
 
 
 

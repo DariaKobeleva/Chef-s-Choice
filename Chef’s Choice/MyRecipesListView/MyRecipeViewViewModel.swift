@@ -12,11 +12,11 @@ final class MyRecipesListViewViewModel: ObservableObject {
     private var realm: Realm
     private var notificationToken: NotificationToken?
     
-    @Published var recipes: [MyRecipe] = []
+    @Published var recipes: Results<MyRecipe>
     
     init() {
         realm = try! Realm()
-        loadRecipes()
+        recipes = realm.objects(MyRecipe.self)
         observeRecipes()
     }
     
@@ -25,19 +25,13 @@ final class MyRecipesListViewViewModel: ObservableObject {
         print("MyRecipesListViewViewModel deinit")
     }
     
-    func loadRecipes() {
-        let results = realm.objects(MyRecipe.self)
-        self.recipes = Array(results)
-    }
-    
     func observeRecipes() {
-        let results = realm.objects(MyRecipe.self)
-        notificationToken = results.observe { [weak self] changes in
+        notificationToken = recipes.observe { [weak self] changes in
             switch changes {
-            case .initial(let results):
-                self?.recipes = Array(results)
-            case .update(let results, _, _, _):
-                self?.recipes = Array(results)
+            case .initial(_):
+                self?.objectWillChange.send()
+            case .update(_, _, _, _):
+                self?.objectWillChange.send()
             case .error(let error):
                 print("Error observing recipes: \(error.localizedDescription)")
             }
@@ -59,12 +53,7 @@ final class MyRecipesListViewViewModel: ObservableObject {
     func deleteRecipe(at offsets: IndexSet) {
         do {
             try realm.write {
-                offsets.forEach { index in
-                    let recipe = recipes[index]
-                    if let objectToDelete = realm.object(ofType: MyRecipe.self, forPrimaryKey: recipe.id) {
-                        realm.delete(objectToDelete)
-                    }
-                }
+                offsets.map { recipes[$0] }.forEach(realm.delete)
             }
         } catch {
             print("Failed to delete recipe: \(error.localizedDescription)")

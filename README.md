@@ -49,10 +49,15 @@ On the recipe details screen, users can view complete information about the sele
 <img src="https://github.com/user-attachments/assets/1f0f18b4-d472-4e32-9c6f-11e9fb3a529f" width="200" height="380"/>
 <img src="https://github.com/user-attachments/assets/2877eb9c-0c3f-40eb-9a1d-d12dd6b17401" width="200" height="380"/>
 
+
 - **Video Recipe**: Users can watch integrated video recipes, making the cooking process more engaging and understandable.
+
 - **Ingredients List**: A full list of required ingredients with quantities specified.
+
 - **Step-by-Step Cooking Instructions**: Detailed descriptions of all the steps required to prepare the dish.
+  
 - **Category and Cuisine**: The dish category and cuisine type are displayed, helping users to easily navigate through recipes.
+  
 - **Add to Favorites**: Users can save the recipe to the "Favorites" section for quick access in the future.
 
 

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct WelcomeView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
     
@@ -83,7 +81,4 @@ struct WelcomeView: View {
     WelcomeView()
         .environmentObject(WelcomeViewViewModel())
 }
-#Preview {
-    WelcomeView()
-        .environmentObject(WelcomeViewViewModel())
-}
+

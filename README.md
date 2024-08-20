@@ -1,4 +1,4 @@
-## Chef’s Choice 
+![IMG_9697](https://github.com/user-attachments/assets/1460b32d-fc67-43c2-b752-4e79ff33f251)## Chef’s Choice 
 
 Chef’s Choice is not just a mobile app - it's a true guide for all culinary enthusiasts. 
 It allows you to discover new recipes organized by categories, ingredients, and world cuisines, helping you expand your gastronomic preferences.
@@ -59,6 +59,21 @@ On the recipe details screen, users can view complete information about the sele
 - **Category and Cuisine**: The dish category and cuisine type are displayed, helping users to easily navigate through recipes.
   
 - **Add to Favorites**: Users can save the recipe to the "Favorites" section for quick access in the future.
+
+### 4. Adding Recipes
+
+Chef’s Choice allows users to easily add and save their favorite recipes directly in the app.
+<img src="https://github.com/user-attachments/assets/d57fd869-9d78-4b5e-95aa-5e48a4f4129e" width="200" height="380"/>
+<img src="https://github.com/user-attachments/assets/2877eb9c-0c3f-40eb-9a1d-d12dd6b17401" width="200" height="380"/>
+<img src="https://github.com/user-attachments/assets/b00109b3-9a7f-4002-a7ac-1ef0a866db81" width="200" height="380"/>
+<img src="https://github.com/user-attachments/assets/7589647f-06e3-4b89-bc75-65feef7f6ce0" width="200" height="380"/>
+
+
+
+
+
+
+
 
 
 

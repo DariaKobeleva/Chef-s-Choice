@@ -66,7 +66,7 @@ Chef’s Choice allows users to easily add and save their favorite recipes direc
 <img src="https://github.com/user-attachments/assets/d57fd869-9d78-4b5e-95aa-5e48a4f4129e" width="200" height="380"/>
 <img src="https://github.com/user-attachments/assets/b00109b3-9a7f-4002-a7ac-1ef0a866db81" width="200" height="380"/>
 <img src="https://github.com/user-attachments/assets/7589647f-06e3-4b89-bc75-65feef7f6ce0" width="200" height="380"/>
-<img src="https://github.com/user-attachments/assets/05ca5fd5-4273-4aa3-9c87-d66780f15f12" width="200" height="380"/>
+<img src="https://github.com/user-attachments/assets/82d0f119-671b-48cc-9df7-35d8fe7b22ec" width="200" height="380"/>
 
 #### 4.1 Accessing the Add Recipe Screen
 

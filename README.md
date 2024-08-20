@@ -1,4 +1,4 @@
-![IMG_9697](https://github.com/user-attachments/assets/1460b32d-fc67-43c2-b752-4e79ff33f251)## Chef’s Choice 
+## Chef’s Choice 
 
 Chef’s Choice is not just a mobile app - it's a true guide for all culinary enthusiasts. 
 It allows you to discover new recipes organized by categories, ingredients, and world cuisines, helping you expand your gastronomic preferences.

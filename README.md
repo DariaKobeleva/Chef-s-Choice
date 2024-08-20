@@ -99,6 +99,3 @@ After filling in all the fields, save the recipe so it appears in your **My Reci
 - **Realm**: Realm database is used for storing data on recipes and ingredients.
 - **WebKit**: Used for integrating and playing YouTube videos.
 - **Kingfisher**: The Kingfisher library is used for asynchronous image loading and caching, ensuring fast image display within the app.
-
-Chef’s Choice is constantly evolving and updating.
-

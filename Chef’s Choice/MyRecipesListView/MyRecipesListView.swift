@@ -21,9 +21,12 @@ struct MyRecipesListView: View {
                             if let imageData = recipe.imageData, let uiImage = UIImage(data: imageData) {
                                 Image(uiImage: uiImage)
                                     .resizable()
-                                    .aspectRatio(contentMode: .fit)
+                                    .aspectRatio(contentMode: .fill)
                                     .frame(width: 70, height: 70)
                                     .clipShape(RoundedRectangle(cornerRadius: 15))
+                                    .shadow(radius: 5)
+                                    .clipped()
+
                             } else {
                                 Image("cookbook")
                                     .resizable()

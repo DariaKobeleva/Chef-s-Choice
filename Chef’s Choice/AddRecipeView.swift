@@ -29,11 +29,11 @@ struct AddRecipeView: View {
                         Spacer()
                         Image(uiImage: mealImage ?? UIImage(named: "cookbook")!)
                             .resizable()
-                            .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(width: 200, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
                             .shadow(radius: 5)
+                            .clipped()
                         Spacer()
                     }
                     

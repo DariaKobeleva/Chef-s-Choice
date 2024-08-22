@@ -18,8 +18,10 @@ struct MyRecipeDetailsView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: 300)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+
                 } else {
-                    Image("cookbook")
+                    Image("")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: .infinity, maxHeight: 300)

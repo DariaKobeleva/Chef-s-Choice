@@ -10,7 +10,7 @@ import PhotosUI
 
 struct ProfileView: View {
     @EnvironmentObject private var welcomeViewVM: WelcomeViewViewModel
-    @State private var profileImage: UIImage?
+    @State private var profileImage: UIImage? = UIImage(named: "chef")
     @State private var showingImagePicker = false
     @State private var showingActionSheet = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
@@ -18,12 +18,14 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Image(uiImage: profileImage ?? UIImage(named: "chef")!)
+                Image(uiImage: profileImage!)
                     .resizable()
                     .scaledToFill()
                     .frame(width: 150, height: 150)
                     .clipShape(Circle())
                     .shadow(radius: 5)
+                    .opacity(showingImagePicker ? 0 : 1) // Плавное исчезновение при открытии ImagePicker
+                    .animation(.easeInOut(duration: 0.3), value: showingImagePicker)
                 Button(action: {
                     showingActionSheet = true
                 }) {
@@ -59,6 +61,8 @@ struct ProfileView: View {
                 .cornerRadius(10)
                 .padding(.horizontal)
                 .frame(maxWidth: 400, maxHeight: 300)
+                .transition(.opacity)
+                .animation(.easeInOut(duration: 0.4), value: showingActionSheet)
             }
             .navigationTitle("Chef \(welcomeViewVM.user.name)")
             .toolbar {

@@ -52,18 +52,19 @@ struct ProfileView: View {
                     )
                 }
                 
-                Form {
-                    Section(header: Text("User Information").font(.headline)) {
-                        TextField("Enter your name", text: $welcomeViewVM.user.name)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                }
-                .cornerRadius(10)
-                .padding(.horizontal)
-                .frame(maxWidth: 400, maxHeight: 300)
-                .transition(.opacity)
-                .animation(.easeInOut(duration: 0.4), value: showingActionSheet)
+                Text("USER INFORMATION")
+                    .bold()
+                    .font(.title3)
+                    .foregroundStyle(.blue).opacity(0.5)
+                Divider()
+                TextField("Enter your name", text: $welcomeViewVM.user.name)
+                    .textFieldStyle(.roundedBorder)
+                    .font(.title2)
+                    .multilineTextAlignment(.leading)
+                    .keyboardType(.default)
+                    .padding()
             }
+            
             .navigationTitle("Chef \(welcomeViewVM.user.name)")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {

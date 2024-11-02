@@ -29,7 +29,7 @@ struct ProfileView: View {
                 Button(action: {
                     showingActionSheet = true
                 }) {
-                    Text("Change Profile Picture")
+                    Text("Choose Profile Picture")
                         .foregroundColor(.gray)
                         .cornerRadius(10)
                 }
@@ -51,7 +51,6 @@ struct ProfileView: View {
                         ]
                     )
                 }
-                
                 Text("USER INFORMATION")
                     .bold()
                     .font(.title3)
@@ -73,10 +72,12 @@ struct ProfileView: View {
                     }
                 }
             }
+            Spacer()
         }
         .sheet(isPresented: $showingImagePicker) {
             ImagePicker(isPresented: $showingImagePicker, image: $profileImage, sourceType: imagePickerSourceType)
         }
+        
     }
 }
 

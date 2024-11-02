@@ -152,6 +152,7 @@
 		207B6BD22C0F7AE8002887BE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20C9F5522C29A74B00C048F5 /* ProfileView.swift */,
 				205337AA2C6E73F4004DCE8B /* RecipeRowView.swift */,
 				2025BDE32C261B9D00A6BDAC /* YTView.swift */,
 				2069688E2C402FC000ABAF61 /* IngredientsSelectionView .swift */,
@@ -196,7 +197,6 @@
 				20CC54562C24615B00700512 /* RecipeDetailsView.swift */,
 				2072D2B32C4D2400005ECA34 /* MyRecipeDetailsView.swift */,
 				20A937562C2B208F00CFBA29 /* AddRecipeView.swift */,
-				20C9F5522C29A74B00C048F5 /* ProfileView.swift */,
 				200C93852C6E2AD100318F73 /* MyRecipesListView */,
 				20CADA072C0E1E41007FBAAF /* WelcomeView */,
 				207B6BD22C0F7AE8002887BE /* Views */,

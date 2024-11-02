@@ -17,9 +17,8 @@ struct ButtonView: View {
         Button(action: action) {
             Text(text)
                 .fontWeight(.bold)
-                .foregroundColor(isDisabled ? .white.opacity(0.5) : .white)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 20)
+                .foregroundStyle(.white.opacity(isDisabled ? 0.5 : 1))
+                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                 .background(
                     Group {
                         if isDisabled {
@@ -30,7 +29,7 @@ struct ButtonView: View {
                     }
                 )
                 .cornerRadius(15)
-                .shadow(color: isDisabled ? .clear : colorButton.opacity(0.6), radius: 5, x: 3, y: 3)
+                .shadow(color: colorButton.opacity(isDisabled ? 0 : 0.6), radius: 5, x: 3, y: 3)
         }
         .disabled(isDisabled)
         .padding(.horizontal)

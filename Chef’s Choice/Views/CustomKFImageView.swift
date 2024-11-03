@@ -21,11 +21,7 @@ struct CustomKFImageView: View {
                 print("Error: \(error)")
             }
             .placeholder {
-                Image("cookbook")
-                    .resizable()
-                    .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 30))
-                    .aspectRatio(contentMode: .fit)
+                DefaultImageView()
             }
             .cacheMemoryOnly()
             .fade(duration: 1)

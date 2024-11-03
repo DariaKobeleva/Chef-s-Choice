@@ -21,7 +21,7 @@ struct FavoriteRecipesView: View {
                                 if let imageURL = URL(string: recipe.strMealThumb) {
                                     CustomKFImageView(imageURL: imageURL)
                                 } else {
-                                    Image("cookbook")
+                                    DefaultImageView()
                                 }
                                 
                                 Text(recipe.strMeal)

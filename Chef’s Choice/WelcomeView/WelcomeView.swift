@@ -26,8 +26,7 @@ struct WelcomeView: View {
             
             VStack(spacing: 30) {
                 VStack(spacing: 20) {
-                    Image("cookbook")
-                        .resizable()
+                    DefaultImageView()
                         .frame(width: 180, height: 180)
                         .shadow(radius: 10)
                     

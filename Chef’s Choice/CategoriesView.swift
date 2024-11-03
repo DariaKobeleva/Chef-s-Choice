@@ -21,7 +21,7 @@ struct CategoriesView: View {
                             if let imageURL = URL(string: category.strCategoryThumb) {
                                 CustomKFImageView(imageURL: imageURL)
                             } else {
-                                Image("cookbook")
+                                DefaultImageView()
                             }
                             Text(category.strCategory)
                                 .multilineTextAlignment(.center)

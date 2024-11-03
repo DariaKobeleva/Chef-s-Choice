@@ -24,11 +24,7 @@ struct IngredientRecipesView: View {
                                 CustomKFImageView(imageURL: imageURL)
                             }
                             else {
-                                Image("cookbook")
-                                    .resizable()
-                                    .clipped()
-                                    .clipShape(RoundedRectangle(cornerRadius: 30))
-                                    .aspectRatio(contentMode: .fit)
+                                DefaultImageView()
                             }
                             
                             Text(recipe.strMeal)
@@ -51,3 +47,5 @@ struct IngredientRecipesView: View {
 #Preview {
     IngredientRecipesView(ingredient: "Chicken")
 }
+
+

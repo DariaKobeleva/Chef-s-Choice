@@ -26,9 +26,8 @@ struct ProfileView: View {
                     .shadow(radius: 5)
                     .opacity(showingImagePicker ? 0 : 1) // Плавное исчезновение при открытии ImagePicker
                     .animation(.easeInOut(duration: 0.3), value: showingImagePicker)
-                Button(action: {
-                    showingActionSheet = true
-                }) {
+                
+                Button(action: { showingActionSheet = true}) {
                     Text("Choose Profile Picture")
                         .foregroundColor(.gray)
                         .cornerRadius(10)

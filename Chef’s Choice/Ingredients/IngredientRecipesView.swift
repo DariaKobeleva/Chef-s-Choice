@@ -29,6 +29,7 @@ struct IngredientRecipesView: View {
                             Text(recipe.strMeal)
                                 .multilineTextAlignment(.center)
                                 .font(.title2)
+                                .frame(height: 20)
                         }
                     }
                 }

@@ -60,47 +60,32 @@ final class NetworkManager: ObservableObject {
     
     func fetchRecipeDetails(by id: String) async {
         let urlString = "\(baseUrl)lookup.php?i=\(id)"
-        await fetchData(
-            urlString: urlString,
-            responseType: RecipeResponse.self
-        ) { response in
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
             self.selectedRecipe = response.meals.first
         }
     }
     
     private func fetchCategories() async {
-        await fetchData(
-            urlString: "\(baseUrl)categories.php",
-            responseType: CategoryResponse.self
-        ) { response in
+        await fetchData(urlString: "\(baseUrl)categories.php", responseType: CategoryResponse.self) { response in
             self.categories = response.categories
         }
     }
     
     private func fetchCuisines() async {
-        await fetchData(
-            urlString: "\(baseUrl)list.php?a=list",
-            responseType: CuisineResponse.self
-        ) { response in
+        await fetchData(urlString: "\(baseUrl)list.php?a=list", responseType: CuisineResponse.self) { response in
             self.cuisines = response.meals
         }
     }
     
     private func fetchIngredients() async {
-        await fetchData(
-            urlString: "\(baseUrl)list.php?i=list",
-            responseType: IngredientResponse.self
-        ) { response in
+        await fetchData(urlString: "\(baseUrl)list.php?i=list", responseType: IngredientResponse.self) { response in
             self.ingredients = response.meals
         }
     }
     
     func fetchRecipesByCategories(_ category: String) async {
         let urlString = "\(baseUrl)filter.php?c=\(category)"
-        await fetchData(
-            urlString: urlString,
-            responseType: RecipeResponse.self
-        ) { response in
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
             self.recipes = response.meals
         }
     }
@@ -108,20 +93,14 @@ final class NetworkManager: ObservableObject {
     
     func fetchRecipesByCuisines(_ cuisine: String) async {
         let urlString = "\(baseUrl)filter.php?a=\(cuisine)"
-        await fetchData(
-            urlString: urlString,
-            responseType: RecipeResponse.self
-        ) { response in
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
             self.recipes = response.meals
         }
     }
     
     func fetchRecipesByIngredient(_ ingredient: String) async {
         let urlString = "\(baseUrl)filter.php?i=\(ingredient)"
-        await fetchData(
-            urlString: urlString,
-            responseType: RecipeResponse.self
-        ) { response in
+        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
             self.recipes = response.meals
         }
     }

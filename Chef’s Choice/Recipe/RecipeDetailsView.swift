@@ -11,12 +11,13 @@ struct RecipeDetailsView: View {
     @EnvironmentObject var networkManager: NetworkManager
     @EnvironmentObject var favorites: FavoritesStorageManager
     @State private var isFavorite: Bool = false
+    @State private var recipe: Recipe?
     
     let recipeId: String
     
     var body: some View {
         ScrollView {
-            if let recipe = networkManager.selectedRecipe {
+            if let recipe = recipe {
                 VStack(alignment: .leading, spacing: 10) {
                     if let youtubeURL = recipe.strYoutube,
                        let imageURL = URL(string: recipe.strMealThumb) {
@@ -81,18 +82,25 @@ struct RecipeDetailsView: View {
             } else {
                 ProgressView()
                     .task {
-                        await networkManager.fetchRecipeDetails(by: recipeId)
+                        await loadRecipe()
                     }
             }
             
         }
     }
-  
+    
+    private func loadRecipe() async {
+        do {
+            self.recipe = try await networkManager.fetchRecipeDetails(by: recipeId)
+        } catch {
+            print("Failed to load recipe details: \(error)")
+        }
+    }
 }
-
-
 
 #Preview {
     RecipeDetailsView(recipeId: "52794")
         .environmentObject(FavoritesStorageManager.shared)
+        .environmentObject(NetworkManager())
 }
+

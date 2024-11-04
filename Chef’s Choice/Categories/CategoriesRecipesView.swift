@@ -41,11 +41,12 @@ struct CategoriesRecipesView: View {
         }
         .navigationTitle("\(categories)")
         .task {
-            await networkManager.fetchRecipesByCategories(categories)
+            await networkManager.fetchRecipesByCategory(categories)
         }
     }
 }
 
 #Preview {
     CategoriesRecipesView(categories: "Beef")
+        .environmentObject(NetworkManager())
 }

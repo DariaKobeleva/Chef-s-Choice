@@ -33,7 +33,7 @@ struct CategoriesView: View {
             }
             .navigationTitle("Categories")
             .task {
-                await networkManager.loadCategoriesIfNeeded()
+                await networkManager.fetchCategories()
             }
         }
     }
@@ -42,4 +42,5 @@ struct CategoriesView: View {
 #Preview {
     CategoriesView()
         .environmentObject(WelcomeViewViewModel())
+        .environmentObject(NetworkManager())
 }

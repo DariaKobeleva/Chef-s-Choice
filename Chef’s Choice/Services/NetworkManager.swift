@@ -12,97 +12,92 @@ final class NetworkManager: ObservableObject {
     @Published var cuisines: [Cuisine] = []
     @Published var ingredients: [Ingredient] = []
     @Published var recipes: [Recipe] = []
-    @Published var selectedRecipe: Recipe?
     @Published var videoID: String?
     
     private let baseUrl = "https://www.themealdb.com/api/json/v1/1/"
-    private var isCategoriesLoaded = false
-    private var isCuisinesLoaded = false
-    private var isIngredientsLoaded = false
     
     private func fetchData<T: Decodable>(
         urlString: String,
-        responseType: T.Type,
-        update: @escaping (T) -> Void
-    ) async {
+        responseType: T.Type
+    ) async throws -> T {
         guard let url = URL(string: urlString) else {
-            return
+            throw URLError(.badURL)
         }
         
+        let (data, _) = try await URLSession.shared.data(from: url)
+        return try JSONDecoder().decode(responseType, from: data)
+    }
+    
+    func fetchCategories() async {
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let decodedResponse = try JSONDecoder().decode(responseType, from: data)
+            let response: CategoryResponse = try await fetchData(urlString: "\(baseUrl)categories.php", responseType: CategoryResponse.self)
             DispatchQueue.main.async {
-                update(decodedResponse)
+                self.categories = response.categories
             }
         } catch {
-            print("Failed to fetch data: \(error)")
+            print("Failed to fetch categories: \(error)")
         }
     }
     
-    func loadCategoriesIfNeeded() async {
-        guard !isCategoriesLoaded else { return }
-        await fetchCategories()
-        isCategoriesLoaded = true
-    }
-    
-    func loadCuisinesIfNeeded() async {
-        guard !isCuisinesLoaded else { return }
-        await fetchCuisines()
-        isCuisinesLoaded = true
-    }
-    
-    func loadIngredientsIfNeeded() async {
-        guard !isIngredientsLoaded else { return }
-        await fetchIngredients()
-        isIngredientsLoaded = true
-    }
-    
-    func fetchRecipeDetails(by id: String) async {
-        let urlString = "\(baseUrl)lookup.php?i=\(id)"
-        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
-            self.selectedRecipe = response.meals.first
+    func fetchCuisines() async {
+        do {
+            let response: CuisineResponse = try await fetchData(urlString: "\(baseUrl)list.php?a=list", responseType: CuisineResponse.self)
+            DispatchQueue.main.async {
+                self.cuisines = response.meals
+            }
+        } catch {
+            print("Failed to fetch cuisines: \(error)")
         }
     }
     
-    private func fetchCategories() async {
-        await fetchData(urlString: "\(baseUrl)categories.php", responseType: CategoryResponse.self) { response in
-            self.categories = response.categories
+    func fetchIngredients() async {
+        do {
+            let response: IngredientResponse = try await fetchData(urlString: "\(baseUrl)list.php?i=list", responseType: IngredientResponse.self)
+            DispatchQueue.main.async {
+                self.ingredients = response.meals
+            }
+        } catch {
+            print("Failed to fetch ingredients: \(error)")
         }
     }
     
-    private func fetchCuisines() async {
-        await fetchData(urlString: "\(baseUrl)list.php?a=list", responseType: CuisineResponse.self) { response in
-            self.cuisines = response.meals
+    func fetchRecipesByCategory(_ category: String) async {
+        do {
+            let response: RecipeResponse = try await fetchData(urlString: "\(baseUrl)filter.php?c=\(category)", responseType: RecipeResponse.self)
+            DispatchQueue.main.async {
+                self.recipes = response.meals
+            }
+        } catch {
+            print("Failed to fetch recipes by category: \(error)")
         }
     }
     
-    private func fetchIngredients() async {
-        await fetchData(urlString: "\(baseUrl)list.php?i=list", responseType: IngredientResponse.self) { response in
-            self.ingredients = response.meals
-        }
-    }
-    
-    func fetchRecipesByCategories(_ category: String) async {
-        let urlString = "\(baseUrl)filter.php?c=\(category)"
-        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
-            self.recipes = response.meals
-        }
-    }
-    
-    
-    func fetchRecipesByCuisines(_ cuisine: String) async {
-        let urlString = "\(baseUrl)filter.php?a=\(cuisine)"
-        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
-            self.recipes = response.meals
+    func fetchRecipesByCuisine(_ cuisine: String) async {
+        do {
+            let response: RecipeResponse = try await fetchData(urlString: "\(baseUrl)filter.php?a=\(cuisine)", responseType: RecipeResponse.self)
+            DispatchQueue.main.async {
+                self.recipes = response.meals
+            }
+        } catch {
+            print("Failed to fetch recipes by cuisine: \(error)")
         }
     }
     
     func fetchRecipesByIngredient(_ ingredient: String) async {
-        let urlString = "\(baseUrl)filter.php?i=\(ingredient)"
-        await fetchData(urlString: urlString, responseType: RecipeResponse.self) { response in
-            self.recipes = response.meals
+        do {
+            let response: RecipeResponse = try await fetchData(urlString: "\(baseUrl)filter.php?i=\(ingredient)", responseType: RecipeResponse.self)
+            DispatchQueue.main.async {
+                self.recipes = response.meals
+            }
+        } catch {
+            print("Failed to fetch recipes by ingredient: \(error)")
         }
+    }
+    
+    func fetchRecipeDetails(by id: String) async throws -> Recipe? {
+        let urlString = "\(baseUrl)lookup.php?i=\(id)"
+        let response: RecipeResponse = try await fetchData(urlString: urlString, responseType: RecipeResponse.self)
+        return response.meals.first
     }
     
     func extractYouTubeVideoID(from url: String) -> String? {
@@ -114,3 +109,4 @@ final class NetworkManager: ObservableObject {
         return nil
     }
 }
+

@@ -21,7 +21,7 @@ struct CuisinesView: View {
         .listStyle(.plain)
         .navigationTitle("Cuisines")
         .task {
-            await networkManager.loadCuisinesIfNeeded()
+            await networkManager.fetchCuisines()
         }
     }
 }

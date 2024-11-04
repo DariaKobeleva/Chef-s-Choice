@@ -41,7 +41,7 @@ struct IngredientsSelectionView: View {
                 presentationMode.wrappedValue.dismiss()
             })
             .task {
-                await networkManager.loadIngredientsIfNeeded()
+                await networkManager.fetchIngredients()
             }
         }
     }

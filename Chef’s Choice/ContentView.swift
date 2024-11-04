@@ -34,4 +34,5 @@ struct ContentView: View {
     ContentView()
         .environmentObject(WelcomeViewViewModel())
         .environmentObject(FavoritesStorageManager.shared)
+        .environmentObject(NetworkManager())
 }

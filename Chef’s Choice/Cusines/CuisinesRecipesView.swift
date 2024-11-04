@@ -34,10 +34,11 @@ struct CuisinesRecipesView: View {
             }
             .navigationTitle("\(cuisine)")
             .task {
-                await networkManager.fetchRecipesByCuisines(cuisine)
+                await networkManager.fetchRecipesByCuisine(cuisine)
             }
             
         }
+        .padding()
     }
 }
 

@@ -39,6 +39,7 @@ struct IngredientRecipesView: View {
                 await networkManager.fetchRecipesByIngredient(ingredient)
             }
         }
+        .padding()
     }
 }
 

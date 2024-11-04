@@ -13,12 +13,14 @@ struct Chef_s_ChoiceApp: App {
         user: UserStorageManager.shared.fetchUser()
     )
     @StateObject private var favorites = FavoritesStorageManager.shared
+    @StateObject private var networkManager = NetworkManager()
     
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environmentObject(favorites)
+                .environmentObject(welcomeViewVM)
+                .environmentObject(networkManager)
         }
-        .environmentObject(welcomeViewVM)
     }
 }

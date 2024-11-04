@@ -16,6 +16,9 @@ final class NetworkManager: ObservableObject {
     @Published var videoID: String?
     
     private let baseUrl = "https://www.themealdb.com/api/json/v1/1/"
+    private var isCategoriesLoaded = false
+    private var isCuisinesLoaded = false
+    private var isIngredientsLoaded = false
     
     private func fetchData<T: Decodable>(
         urlString: String,
@@ -37,6 +40,24 @@ final class NetworkManager: ObservableObject {
         }
     }
     
+    func loadCategoriesIfNeeded() async {
+        guard !isCategoriesLoaded else { return }
+        await fetchCategories()
+        isCategoriesLoaded = true
+    }
+    
+    func loadCuisinesIfNeeded() async {
+        guard !isCuisinesLoaded else { return }
+        await fetchCuisines()
+        isCuisinesLoaded = true
+    }
+    
+    func loadIngredientsIfNeeded() async {
+        guard !isIngredientsLoaded else { return }
+        await fetchIngredients()
+        isIngredientsLoaded = true
+    }
+    
     func fetchRecipeDetails(by id: String) async {
         let urlString = "\(baseUrl)lookup.php?i=\(id)"
         await fetchData(
@@ -47,7 +68,7 @@ final class NetworkManager: ObservableObject {
         }
     }
     
-    func fetchCategories() async {
+    private func fetchCategories() async {
         await fetchData(
             urlString: "\(baseUrl)categories.php",
             responseType: CategoryResponse.self
@@ -56,7 +77,7 @@ final class NetworkManager: ObservableObject {
         }
     }
     
-    func fetchCuisines() async {
+    private func fetchCuisines() async {
         await fetchData(
             urlString: "\(baseUrl)list.php?a=list",
             responseType: CuisineResponse.self
@@ -65,7 +86,7 @@ final class NetworkManager: ObservableObject {
         }
     }
     
-    func fetchIngredients() async {
+    private func fetchIngredients() async {
         await fetchData(
             urlString: "\(baseUrl)list.php?i=list",
             responseType: IngredientResponse.self

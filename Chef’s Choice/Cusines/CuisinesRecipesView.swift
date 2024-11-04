@@ -10,8 +10,8 @@ import SwiftUI
 struct CuisinesRecipesView: View {
     let cuisine: String
     
-    @StateObject private var networkManager = NetworkManager()
-    
+    @EnvironmentObject var networkManager: NetworkManager
+
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     var body: some View {
         ScrollView {
@@ -29,7 +29,6 @@ struct CuisinesRecipesView: View {
                                 .multilineTextAlignment(.center)
                                 .font(.title2)
                         }
-                        
                     }
                 }
             }
@@ -44,4 +43,5 @@ struct CuisinesRecipesView: View {
 
 #Preview {
     CuisinesRecipesView(cuisine: "Italian")
+        .environmentObject(NetworkManager())
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientsSelectionView: View {
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var networkManager: NetworkManager
     @Binding var selectedIngredients: [String]
     @State private var checkedIngredients = Set<String>()
     
@@ -41,7 +41,7 @@ struct IngredientsSelectionView: View {
                 presentationMode.wrappedValue.dismiss()
             })
             .task {
-                await networkManager.fetchIngredients()
+                await networkManager.loadIngredientsIfNeeded()
             }
         }
     }

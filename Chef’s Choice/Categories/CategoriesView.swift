@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoriesView: View {
-    @StateObject private var networkManager = NetworkManager()
-    
+    @EnvironmentObject var networkManager: NetworkManager
+
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     
     var body: some View {
@@ -33,7 +33,7 @@ struct CategoriesView: View {
             }
             .navigationTitle("Categories")
             .task {
-                await networkManager.fetchCategories()
+                await networkManager.loadCategoriesIfNeeded()
             }
         }
     }

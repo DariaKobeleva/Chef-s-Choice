@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct CategoriesRecipesView: View {
+    @EnvironmentObject var networkManager: NetworkManager
     let categories: String
-    
-    @StateObject private var networkManager = NetworkManager()
     
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     

@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct IngredientRecipesView: View {
+    @EnvironmentObject var networkManager: NetworkManager
     let ingredient: String
-    
-    @StateObject private var networkManager = NetworkManager()
-    
+
     private let adaptiveColumns = [GridItem(.adaptive(minimum: 170))]
     
     var body: some View {
@@ -46,6 +45,7 @@ struct IngredientRecipesView: View {
 
 #Preview {
     IngredientRecipesView(ingredient: "Chicken")
+        .environmentObject(NetworkManager())
 }
 
 

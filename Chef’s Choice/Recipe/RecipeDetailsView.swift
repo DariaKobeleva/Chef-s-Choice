@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RecipeDetailsView: View {
-    @StateObject private var networkManager = NetworkManager()
-    @State private var isFavorite: Bool = false
+    @EnvironmentObject var networkManager: NetworkManager
     @EnvironmentObject var favorites: FavoritesStorageManager
+    @State private var isFavorite: Bool = false
     
     let recipeId: String
     

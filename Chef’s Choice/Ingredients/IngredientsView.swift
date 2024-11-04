@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientsView: View {
-    @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var networkManager: NetworkManager
     @State private var searchText = ""
     
     var filteredIngredients: [Ingredient] {
@@ -38,7 +38,7 @@ struct IngredientsView: View {
         .listStyle(.plain)
         .navigationTitle("Ingredients")
         .task {
-            await networkManager.fetchIngredients()
+            await networkManager.loadIngredientsIfNeeded()
         }
         .searchable(text: $searchText)
         
@@ -47,4 +47,5 @@ struct IngredientsView: View {
 
 #Preview {
     IngredientsView()
+        .environmentObject(NetworkManager())
 }

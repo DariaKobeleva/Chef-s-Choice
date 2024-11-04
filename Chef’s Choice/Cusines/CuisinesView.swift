@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CuisinesView: View {
-    @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var networkManager: NetworkManager
     
     var body: some View {
         
@@ -21,7 +21,7 @@ struct CuisinesView: View {
         .listStyle(.plain)
         .navigationTitle("Cuisines")
         .task {
-            await networkManager.fetchCuisines()
+            await networkManager.loadCuisinesIfNeeded()
         }
     }
 }
@@ -29,4 +29,5 @@ struct CuisinesView: View {
 
 #Preview {
     CuisinesView()
+        .environmentObject(NetworkManager())
 }

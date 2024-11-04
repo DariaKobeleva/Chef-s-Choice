@@ -9,7 +9,7 @@ import SwiftUI
 import WebKit
 
 struct YTView: View {
-    @StateObject private var networkManager = NetworkManager()
+    @EnvironmentObject var networkManager: NetworkManager
     let videoURL: String
     let imageURL: URL
     
@@ -42,6 +42,7 @@ struct Video: UIViewRepresentable {
 
 #Preview {
     YTView(videoURL: "", imageURL: URL(string:"https://www.themealdb.com/images/media/meals/z0ageb1583189517.jpg")!)
+        .environmentObject(NetworkManager())
 }
 
 

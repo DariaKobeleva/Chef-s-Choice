@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class NetworkManager: ObservableObject {
     @Published var categories: [Category] = []
     @Published var cuisines: [Cuisine] = []
@@ -31,9 +32,7 @@ final class NetworkManager: ObservableObject {
     func fetchCategories() async {
         do {
             let response: CategoryResponse = try await fetchData(urlString: "\(baseUrl)categories.php", responseType: CategoryResponse.self)
-            DispatchQueue.main.async {
-                self.categories = response.categories
-            }
+            self.categories = response.categories
         } catch {
             print("Failed to fetch categories: \(error)")
         }
@@ -42,9 +41,7 @@ final class NetworkManager: ObservableObject {
     func fetchCuisines() async {
         do {
             let response: CuisineResponse = try await fetchData(urlString: "\(baseUrl)list.php?a=list", responseType: CuisineResponse.self)
-            DispatchQueue.main.async {
-                self.cuisines = response.meals
-            }
+            self.cuisines = response.meals
         } catch {
             print("Failed to fetch cuisines: \(error)")
         }
@@ -53,9 +50,7 @@ final class NetworkManager: ObservableObject {
     func fetchIngredients() async {
         do {
             let response: IngredientResponse = try await fetchData(urlString: "\(baseUrl)list.php?i=list", responseType: IngredientResponse.self)
-            DispatchQueue.main.async {
-                self.ingredients = response.meals
-            }
+            self.ingredients = response.meals
         } catch {
             print("Failed to fetch ingredients: \(error)")
         }
@@ -64,9 +59,7 @@ final class NetworkManager: ObservableObject {
     func fetchRecipesByCategory(_ category: String) async {
         do {
             let response: RecipeResponse = try await fetchData(urlString: "\(baseUrl)filter.php?c=\(category)", responseType: RecipeResponse.self)
-            DispatchQueue.main.async {
-                self.recipes = response.meals
-            }
+            self.recipes = response.meals
         } catch {
             print("Failed to fetch recipes by category: \(error)")
         }
@@ -75,9 +68,7 @@ final class NetworkManager: ObservableObject {
     func fetchRecipesByCuisine(_ cuisine: String) async {
         do {
             let response: RecipeResponse = try await fetchData(urlString: "\(baseUrl)filter.php?a=\(cuisine)", responseType: RecipeResponse.self)
-            DispatchQueue.main.async {
-                self.recipes = response.meals
-            }
+            self.recipes = response.meals
         } catch {
             print("Failed to fetch recipes by cuisine: \(error)")
         }
@@ -86,9 +77,7 @@ final class NetworkManager: ObservableObject {
     func fetchRecipesByIngredient(_ ingredient: String) async {
         do {
             let response: RecipeResponse = try await fetchData(urlString: "\(baseUrl)filter.php?i=\(ingredient)", responseType: RecipeResponse.self)
-            DispatchQueue.main.async {
-                self.recipes = response.meals
-            }
+            self.recipes = response.meals
         } catch {
             print("Failed to fetch recipes by ingredient: \(error)")
         }
